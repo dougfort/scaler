@@ -1,0 +1,89 @@
+syntax = "proto3";
+
+package protobuf;
+
+import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+
+// DeploymentsResponse contains all known deploymwnt IDs
+message DeploymentsResponse {
+    repeated string deployment_id = 1;
+}
+
+// PlatformsResponse contains all known platform IDs
+message PlatformsResponse {
+    repeated string platform_id = 1;
+}
+
+// GetDeploymentStatusRequest requests the status of a deployment
+message GetDeploymentStatusRequest {
+    string deployment_id = 1;
+}
+
+// DeploymentStatusResponse lists deployment status on all known platforms
+message DeploymentStatusResponse {
+    repeated DeploymentStatus deployment_status = 1;
+}
+
+message SetDeploymentStatusRequest {
+    string deployment_id = 1;
+    repeated DeploymentStatus deployment_status = 2;
+}
+
+// DeploymentStatus is the information about a deployment on an individual platform
+message DeploymentStatus {
+    string platform_id = 1;
+    int32 instance_count = 2;
+    // resources here
+}
+
+// Interface exported by the server.
+service Scaler {
+
+    // EnumerateDeployments lists all known deployment IDs
+    rpc EnumerateDeployments(
+        google.protobuf.Empty
+    ) returns (DeploymentsResponse) {
+ 
+        // REST method
+        option (google.api.http) = {
+            get: "/services/scaler/deployments"
+       };       
+    }
+
+    // EnumeratePlatforms lists all known platform IDs
+    rpc EnumeratePlatforms(
+        google.protobuf.Empty
+    ) returns (PlatformsResponse) {
+ 
+        // REST method
+        option (google.api.http) = {
+            get: "/services/scaler/deployments/platforms"
+       };       
+    }
+
+    // GetDeploymentStatus lists the status of the deployment on all platforms
+    rpc GetDeploymentStatus(
+        GetDeploymentStatusRequest
+    ) returns (DeploymentStatusResponse) {
+
+        // REST method
+        option (google.api.http) = {
+            get: "/services/scaler/deployments/{deployment_id}"
+        };
+    }
+
+    // SetDeploymentStatus sets the desired deployment status 
+    // Returns the known deployment status at time of execution
+    rpc SetDeploymentStatus(
+        SetDeploymentStatusRequest
+    ) returns (DeploymentStatusResponse) {
+        
+        // REST method
+        option (google.api.http) = {
+            put: "/services/scaler/deployments/{deployment_id}"
+            body: "*"
+        };
+    }
+}
+

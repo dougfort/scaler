@@ -1,0 +1,174 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "scaler.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/services/scaler/deployments": {
+      "get": {
+        "summary": "EnumerateDeployments lists all known deployment IDs",
+        "operationId": "EnumerateDeployments",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/protobufDeploymentsResponse"
+            }
+          }
+        },
+        "tags": [
+          "Scaler"
+        ]
+      }
+    },
+    "/services/scaler/deployments/platforms": {
+      "get": {
+        "summary": "EnumeratePlatforms lists all known platform IDs",
+        "operationId": "EnumeratePlatforms",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/protobufPlatformsResponse"
+            }
+          }
+        },
+        "tags": [
+          "Scaler"
+        ]
+      }
+    },
+    "/services/scaler/deployments/{deployment_id}": {
+      "get": {
+        "summary": "GetDeploymentStatus lists the status of the deployment on all platforms",
+        "operationId": "GetDeploymentStatus",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/protobufDeploymentStatusResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "deployment_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Scaler"
+        ]
+      },
+      "put": {
+        "summary": "SetDeploymentStatus sets the desired deployment status \nReturns the known deployment status at time of execution",
+        "operationId": "SetDeploymentStatus",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/protobufDeploymentStatusResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "deployment_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protobufSetDeploymentStatusRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Scaler"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "protobufDeploymentStatus": {
+      "type": "object",
+      "properties": {
+        "platform_id": {
+          "type": "string"
+        },
+        "instance_count": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "DeploymentStatus is the information about a deployment on an individual platform"
+    },
+    "protobufDeploymentStatusResponse": {
+      "type": "object",
+      "properties": {
+        "deployment_status": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufDeploymentStatus"
+          }
+        }
+      },
+      "title": "DeploymentStatusResponse lists deployment status on all known platforms"
+    },
+    "protobufDeploymentsResponse": {
+      "type": "object",
+      "properties": {
+        "deployment_id": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "DeploymentsResponse contains all known deploymwnt IDs"
+    },
+    "protobufPlatformsResponse": {
+      "type": "object",
+      "properties": {
+        "platform_id": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "PlatformsResponse contains all known platform IDs"
+    },
+    "protobufSetDeploymentStatusRequest": {
+      "type": "object",
+      "properties": {
+        "deployment_id": {
+          "type": "string"
+        },
+        "deployment_status": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufDeploymentStatus"
+          }
+        }
+      }
+    }
+  }
+}
