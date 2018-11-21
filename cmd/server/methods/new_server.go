@@ -9,17 +9,22 @@ import (
 
 type serverData struct {
 	zerolog.Logger
+	DeploymentStatusMap map[string][]DeploymentStatus
+	PlatformIDs         []string
 }
 
-// NewScalerServer returns an object that implements the  interface
+// CreateAndRegisterServer returns an object that implements the  interface
 func CreateAndRegisterServer(
 	logger zerolog.Logger,
 	grpcServer *grpc.Server,
 ) {
-	var server pb.ScalerServer = &serverData{
-		logger,
+	s := &serverData{
+		Logger:              logger,
+		DeploymentStatusMap: make(map[string][]DeploymentStatus),
 	}
 
-	pb.RegisterScalerServer(grpcServer, server)
+	s.loadTestData()
 
+	pb.RegisterScalerServer(grpcServer, s)
+	s.Logger.Debug().Str("method", "CreateAndRegisterServer").Msg("registered")
 }
