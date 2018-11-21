@@ -14,7 +14,7 @@ func (s *serverData) EnumeratePlatforms(
 ) (*pb.PlatformsResponse, error) {
 	var response pb.PlatformsResponse
 
-	for _, platformID := range s.PlatformIDs {
+	for platformID := range s.platforms {
 		response.PlatformId = append(response.PlatformId, platformID)
 	}
 

@@ -12,9 +12,15 @@ func (s *serverData) EnumerateDeployments(
 	ctx context.Context,
 	request *empty.Empty,
 ) (*pb.DeploymentsResponse, error) {
-	var response pb.DeploymentsResponse
+	deploymentIDSet := make(map[string]struct{})
+	for _, platform := range s.platforms {
+		for _, deploymentID := range platform.enumerateDeployments() {
+			deploymentIDSet[deploymentID] = struct{}{}
+		}
+	}
 
-	for deploymentID := range s.DeploymentStatusMap {
+	var response pb.DeploymentsResponse
+	for deploymentID := range deploymentIDSet {
 		response.DeploymentId = append(response.DeploymentId, deploymentID)
 	}
 

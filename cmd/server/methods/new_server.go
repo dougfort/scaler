@@ -9,8 +9,7 @@ import (
 
 type serverData struct {
 	zerolog.Logger
-	DeploymentStatusMap map[string][]DeploymentStatus
-	PlatformIDs         []string
+	platforms map[string]*platformData
 }
 
 // CreateAndRegisterServer returns an object that implements the  interface
@@ -19,8 +18,8 @@ func CreateAndRegisterServer(
 	grpcServer *grpc.Server,
 ) {
 	s := &serverData{
-		Logger:              logger,
-		DeploymentStatusMap: make(map[string][]DeploymentStatus),
+		Logger:    logger,
+		platforms: make(map[string]*platformData),
 	}
 
 	s.loadTestData()
