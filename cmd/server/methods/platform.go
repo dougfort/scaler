@@ -41,3 +41,19 @@ func (p *platformData) getDeploymentData(
 	}
 	return data, true, nil
 }
+
+// setDeploymentData returns false if the deployment does not exist on
+// this platform. That is different from having zero instances.
+func (p *platformData) setDeploymentData(
+	deploymentID string,
+	data deploymentData,
+) (bool, error) {
+	_, ok := p.deployments[deploymentID]
+	if !ok {
+		return false, nil
+	}
+
+	p.deployments[deploymentID] = data
+
+	return true, nil
+}

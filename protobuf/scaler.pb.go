@@ -37,7 +37,7 @@ func (m *DeploymentsResponse) Reset()         { *m = DeploymentsResponse{} }
 func (m *DeploymentsResponse) String() string { return proto.CompactTextString(m) }
 func (*DeploymentsResponse) ProtoMessage()    {}
 func (*DeploymentsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_scaler_f957fac56d0ce2e1, []int{0}
+	return fileDescriptor_scaler_0d1a5c489ad6b301, []int{0}
 }
 func (m *DeploymentsResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_DeploymentsResponse.Unmarshal(m, b)
@@ -76,7 +76,7 @@ func (m *PlatformsResponse) Reset()         { *m = PlatformsResponse{} }
 func (m *PlatformsResponse) String() string { return proto.CompactTextString(m) }
 func (*PlatformsResponse) ProtoMessage()    {}
 func (*PlatformsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_scaler_f957fac56d0ce2e1, []int{1}
+	return fileDescriptor_scaler_0d1a5c489ad6b301, []int{1}
 }
 func (m *PlatformsResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PlatformsResponse.Unmarshal(m, b)
@@ -115,7 +115,7 @@ func (m *GetDeploymentStatusRequest) Reset()         { *m = GetDeploymentStatusR
 func (m *GetDeploymentStatusRequest) String() string { return proto.CompactTextString(m) }
 func (*GetDeploymentStatusRequest) ProtoMessage()    {}
 func (*GetDeploymentStatusRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_scaler_f957fac56d0ce2e1, []int{2}
+	return fileDescriptor_scaler_0d1a5c489ad6b301, []int{2}
 }
 func (m *GetDeploymentStatusRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_GetDeploymentStatusRequest.Unmarshal(m, b)
@@ -142,45 +142,46 @@ func (m *GetDeploymentStatusRequest) GetDeploymentId() string {
 	return ""
 }
 
-// DeploymentStatusResponse lists deployment status on all known platforms
-type DeploymentStatusResponse struct {
+// GetDeploymentStatusResponse lists deployment status on all known platforms
+type GetDeploymentStatusResponse struct {
 	DeploymentStatus     []*DeploymentStatus `protobuf:"bytes,1,rep,name=deployment_status,json=deploymentStatus,proto3" json:"deployment_status,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}            `json:"-"`
 	XXX_unrecognized     []byte              `json:"-"`
 	XXX_sizecache        int32               `json:"-"`
 }
 
-func (m *DeploymentStatusResponse) Reset()         { *m = DeploymentStatusResponse{} }
-func (m *DeploymentStatusResponse) String() string { return proto.CompactTextString(m) }
-func (*DeploymentStatusResponse) ProtoMessage()    {}
-func (*DeploymentStatusResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_scaler_f957fac56d0ce2e1, []int{3}
+func (m *GetDeploymentStatusResponse) Reset()         { *m = GetDeploymentStatusResponse{} }
+func (m *GetDeploymentStatusResponse) String() string { return proto.CompactTextString(m) }
+func (*GetDeploymentStatusResponse) ProtoMessage()    {}
+func (*GetDeploymentStatusResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_scaler_0d1a5c489ad6b301, []int{3}
 }
-func (m *DeploymentStatusResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_DeploymentStatusResponse.Unmarshal(m, b)
+func (m *GetDeploymentStatusResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetDeploymentStatusResponse.Unmarshal(m, b)
 }
-func (m *DeploymentStatusResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_DeploymentStatusResponse.Marshal(b, m, deterministic)
+func (m *GetDeploymentStatusResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetDeploymentStatusResponse.Marshal(b, m, deterministic)
 }
-func (dst *DeploymentStatusResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_DeploymentStatusResponse.Merge(dst, src)
+func (dst *GetDeploymentStatusResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetDeploymentStatusResponse.Merge(dst, src)
 }
-func (m *DeploymentStatusResponse) XXX_Size() int {
-	return xxx_messageInfo_DeploymentStatusResponse.Size(m)
+func (m *GetDeploymentStatusResponse) XXX_Size() int {
+	return xxx_messageInfo_GetDeploymentStatusResponse.Size(m)
 }
-func (m *DeploymentStatusResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_DeploymentStatusResponse.DiscardUnknown(m)
+func (m *GetDeploymentStatusResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetDeploymentStatusResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_DeploymentStatusResponse proto.InternalMessageInfo
+var xxx_messageInfo_GetDeploymentStatusResponse proto.InternalMessageInfo
 
-func (m *DeploymentStatusResponse) GetDeploymentStatus() []*DeploymentStatus {
+func (m *GetDeploymentStatusResponse) GetDeploymentStatus() []*DeploymentStatus {
 	if m != nil {
 		return m.DeploymentStatus
 	}
 	return nil
 }
 
+// SetDeploymentStatus requests target deployment status
 type SetDeploymentStatusRequest struct {
 	DeploymentId         string              `protobuf:"bytes,1,opt,name=deployment_id,json=deploymentId,proto3" json:"deployment_id,omitempty"`
 	DeploymentStatus     []*DeploymentStatus `protobuf:"bytes,2,rep,name=deployment_status,json=deploymentStatus,proto3" json:"deployment_status,omitempty"`
@@ -193,7 +194,7 @@ func (m *SetDeploymentStatusRequest) Reset()         { *m = SetDeploymentStatusR
 func (m *SetDeploymentStatusRequest) String() string { return proto.CompactTextString(m) }
 func (*SetDeploymentStatusRequest) ProtoMessage()    {}
 func (*SetDeploymentStatusRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_scaler_f957fac56d0ce2e1, []int{4}
+	return fileDescriptor_scaler_0d1a5c489ad6b301, []int{4}
 }
 func (m *SetDeploymentStatusRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SetDeploymentStatusRequest.Unmarshal(m, b)
@@ -227,10 +228,57 @@ func (m *SetDeploymentStatusRequest) GetDeploymentStatus() []*DeploymentStatus {
 	return nil
 }
 
+// SetDeploymentStatusResponse reports the result of requesting set
+type SetDeploymentStatusResponse struct {
+	PlatformsFound       uint32   `protobuf:"varint,1,opt,name=platforms_found,json=platformsFound,proto3" json:"platforms_found,omitempty"`
+	PlatformsSet         uint32   `protobuf:"varint,2,opt,name=platforms_set,json=platformsSet,proto3" json:"platforms_set,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *SetDeploymentStatusResponse) Reset()         { *m = SetDeploymentStatusResponse{} }
+func (m *SetDeploymentStatusResponse) String() string { return proto.CompactTextString(m) }
+func (*SetDeploymentStatusResponse) ProtoMessage()    {}
+func (*SetDeploymentStatusResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_scaler_0d1a5c489ad6b301, []int{5}
+}
+func (m *SetDeploymentStatusResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SetDeploymentStatusResponse.Unmarshal(m, b)
+}
+func (m *SetDeploymentStatusResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SetDeploymentStatusResponse.Marshal(b, m, deterministic)
+}
+func (dst *SetDeploymentStatusResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SetDeploymentStatusResponse.Merge(dst, src)
+}
+func (m *SetDeploymentStatusResponse) XXX_Size() int {
+	return xxx_messageInfo_SetDeploymentStatusResponse.Size(m)
+}
+func (m *SetDeploymentStatusResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_SetDeploymentStatusResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SetDeploymentStatusResponse proto.InternalMessageInfo
+
+func (m *SetDeploymentStatusResponse) GetPlatformsFound() uint32 {
+	if m != nil {
+		return m.PlatformsFound
+	}
+	return 0
+}
+
+func (m *SetDeploymentStatusResponse) GetPlatformsSet() uint32 {
+	if m != nil {
+		return m.PlatformsSet
+	}
+	return 0
+}
+
 // DeploymentStatus is the information about a deployment on an individual platform
 type DeploymentStatus struct {
 	PlatformId           string   `protobuf:"bytes,1,opt,name=platform_id,json=platformId,proto3" json:"platform_id,omitempty"`
-	InstanceCount        int32    `protobuf:"varint,2,opt,name=instance_count,json=instanceCount,proto3" json:"instance_count,omitempty"`
+	InstanceCount        uint32   `protobuf:"varint,2,opt,name=instance_count,json=instanceCount,proto3" json:"instance_count,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -240,7 +288,7 @@ func (m *DeploymentStatus) Reset()         { *m = DeploymentStatus{} }
 func (m *DeploymentStatus) String() string { return proto.CompactTextString(m) }
 func (*DeploymentStatus) ProtoMessage()    {}
 func (*DeploymentStatus) Descriptor() ([]byte, []int) {
-	return fileDescriptor_scaler_f957fac56d0ce2e1, []int{5}
+	return fileDescriptor_scaler_0d1a5c489ad6b301, []int{6}
 }
 func (m *DeploymentStatus) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_DeploymentStatus.Unmarshal(m, b)
@@ -267,7 +315,7 @@ func (m *DeploymentStatus) GetPlatformId() string {
 	return ""
 }
 
-func (m *DeploymentStatus) GetInstanceCount() int32 {
+func (m *DeploymentStatus) GetInstanceCount() uint32 {
 	if m != nil {
 		return m.InstanceCount
 	}
@@ -278,8 +326,9 @@ func init() {
 	proto.RegisterType((*DeploymentsResponse)(nil), "protobuf.DeploymentsResponse")
 	proto.RegisterType((*PlatformsResponse)(nil), "protobuf.PlatformsResponse")
 	proto.RegisterType((*GetDeploymentStatusRequest)(nil), "protobuf.GetDeploymentStatusRequest")
-	proto.RegisterType((*DeploymentStatusResponse)(nil), "protobuf.DeploymentStatusResponse")
+	proto.RegisterType((*GetDeploymentStatusResponse)(nil), "protobuf.GetDeploymentStatusResponse")
 	proto.RegisterType((*SetDeploymentStatusRequest)(nil), "protobuf.SetDeploymentStatusRequest")
+	proto.RegisterType((*SetDeploymentStatusResponse)(nil), "protobuf.SetDeploymentStatusResponse")
 	proto.RegisterType((*DeploymentStatus)(nil), "protobuf.DeploymentStatus")
 }
 
@@ -300,10 +349,9 @@ type ScalerClient interface {
 	// EnumeratePlatforms lists all known platform IDs
 	EnumeratePlatforms(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*PlatformsResponse, error)
 	// GetDeploymentStatus lists the status of the deployment on all platforms
-	GetDeploymentStatus(ctx context.Context, in *GetDeploymentStatusRequest, opts ...grpc.CallOption) (*DeploymentStatusResponse, error)
+	GetDeploymentStatus(ctx context.Context, in *GetDeploymentStatusRequest, opts ...grpc.CallOption) (*GetDeploymentStatusResponse, error)
 	// SetDeploymentStatus sets the desired deployment status
-	// Returns the known deployment status at time of execution
-	SetDeploymentStatus(ctx context.Context, in *SetDeploymentStatusRequest, opts ...grpc.CallOption) (*DeploymentStatusResponse, error)
+	SetDeploymentStatus(ctx context.Context, in *SetDeploymentStatusRequest, opts ...grpc.CallOption) (*SetDeploymentStatusResponse, error)
 }
 
 type scalerClient struct {
@@ -332,8 +380,8 @@ func (c *scalerClient) EnumeratePlatforms(ctx context.Context, in *empty.Empty, 
 	return out, nil
 }
 
-func (c *scalerClient) GetDeploymentStatus(ctx context.Context, in *GetDeploymentStatusRequest, opts ...grpc.CallOption) (*DeploymentStatusResponse, error) {
-	out := new(DeploymentStatusResponse)
+func (c *scalerClient) GetDeploymentStatus(ctx context.Context, in *GetDeploymentStatusRequest, opts ...grpc.CallOption) (*GetDeploymentStatusResponse, error) {
+	out := new(GetDeploymentStatusResponse)
 	err := c.cc.Invoke(ctx, "/protobuf.Scaler/GetDeploymentStatus", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -341,8 +389,8 @@ func (c *scalerClient) GetDeploymentStatus(ctx context.Context, in *GetDeploymen
 	return out, nil
 }
 
-func (c *scalerClient) SetDeploymentStatus(ctx context.Context, in *SetDeploymentStatusRequest, opts ...grpc.CallOption) (*DeploymentStatusResponse, error) {
-	out := new(DeploymentStatusResponse)
+func (c *scalerClient) SetDeploymentStatus(ctx context.Context, in *SetDeploymentStatusRequest, opts ...grpc.CallOption) (*SetDeploymentStatusResponse, error) {
+	out := new(SetDeploymentStatusResponse)
 	err := c.cc.Invoke(ctx, "/protobuf.Scaler/SetDeploymentStatus", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -357,10 +405,9 @@ type ScalerServer interface {
 	// EnumeratePlatforms lists all known platform IDs
 	EnumeratePlatforms(context.Context, *empty.Empty) (*PlatformsResponse, error)
 	// GetDeploymentStatus lists the status of the deployment on all platforms
-	GetDeploymentStatus(context.Context, *GetDeploymentStatusRequest) (*DeploymentStatusResponse, error)
+	GetDeploymentStatus(context.Context, *GetDeploymentStatusRequest) (*GetDeploymentStatusResponse, error)
 	// SetDeploymentStatus sets the desired deployment status
-	// Returns the known deployment status at time of execution
-	SetDeploymentStatus(context.Context, *SetDeploymentStatusRequest) (*DeploymentStatusResponse, error)
+	SetDeploymentStatus(context.Context, *SetDeploymentStatusRequest) (*SetDeploymentStatusResponse, error)
 }
 
 func RegisterScalerServer(s *grpc.Server, srv ScalerServer) {
@@ -464,35 +511,38 @@ var _Scaler_serviceDesc = grpc.ServiceDesc{
 	Metadata: "scaler.proto",
 }
 
-func init() { proto.RegisterFile("scaler.proto", fileDescriptor_scaler_f957fac56d0ce2e1) }
+func init() { proto.RegisterFile("scaler.proto", fileDescriptor_scaler_0d1a5c489ad6b301) }
 
-var fileDescriptor_scaler_f957fac56d0ce2e1 = []byte{
-	// 423 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x92, 0xcf, 0xaa, 0xd3, 0x40,
-	0x14, 0xc6, 0x99, 0xaa, 0x17, 0x3d, 0xf7, 0x5e, 0x69, 0xa7, 0x22, 0x65, 0x5a, 0xb5, 0xc4, 0x2a,
-	0x45, 0x24, 0xc1, 0x5a, 0x10, 0xba, 0x13, 0x2d, 0xa5, 0x3b, 0x49, 0x76, 0x6e, 0xca, 0x34, 0x99,
-	0x96, 0x40, 0x32, 0x13, 0x33, 0x13, 0xa1, 0x88, 0x1b, 0x97, 0x6e, 0x45, 0xf0, 0x1d, 0x7c, 0x1c,
-	0x5f, 0xc1, 0x07, 0x91, 0x4e, 0x9a, 0xa4, 0x6d, 0xd2, 0x80, 0xb7, 0xab, 0xc0, 0x77, 0xfe, 0x7c,
-	0xbf, 0x9c, 0xf9, 0xe0, 0x4a, 0xba, 0x34, 0x60, 0xb1, 0x19, 0xc5, 0x42, 0x09, 0x7c, 0x57, 0x7f,
-	0x96, 0xc9, 0x8a, 0xf4, 0xd6, 0x42, 0xac, 0x03, 0x66, 0xd1, 0xc8, 0xb7, 0x28, 0xe7, 0x42, 0x51,
-	0xe5, 0x0b, 0x2e, 0xd3, 0x3e, 0xd2, 0xdd, 0x55, 0xb3, 0x76, 0x8b, 0x85, 0x91, 0xda, 0xa4, 0x45,
-	0x63, 0x02, 0xed, 0xf7, 0x2c, 0x0a, 0xc4, 0x26, 0x64, 0x5c, 0x49, 0x9b, 0xc9, 0x48, 0x70, 0xc9,
-	0xf0, 0x53, 0xb8, 0xf6, 0x72, 0x79, 0xe1, 0x7b, 0x1d, 0xd4, 0xbf, 0x35, 0xbc, 0x67, 0x5f, 0x15,
-	0xe2, 0xdc, 0x33, 0xc6, 0xd0, 0xfa, 0x10, 0x50, 0xb5, 0x12, 0x71, 0x58, 0x4c, 0x3e, 0x81, 0xcb,
-	0x68, 0x27, 0x16, 0x73, 0x90, 0x49, 0x73, 0xcf, 0x78, 0x0b, 0x64, 0xc6, 0x54, 0x61, 0xea, 0x28,
-	0xaa, 0x12, 0x69, 0xb3, 0x4f, 0x09, 0x93, 0xaa, 0xca, 0x18, 0x95, 0x8c, 0x5d, 0xe8, 0x94, 0xe7,
-	0x77, 0xfe, 0x33, 0x68, 0xed, 0x2d, 0x90, 0xba, 0xa8, 0x29, 0x2e, 0x47, 0xc4, 0xcc, 0x4e, 0x60,
-	0x96, 0xc6, 0x9b, 0xde, 0x91, 0x62, 0x7c, 0x47, 0x40, 0x9c, 0xf3, 0x40, 0xab, 0x61, 0x1a, 0x37,
-	0x80, 0xf9, 0x08, 0xcd, 0xe3, 0xae, 0xf2, 0xa5, 0xd1, 0xe1, 0xa5, 0xf1, 0x33, 0xb8, 0xef, 0x73,
-	0xa9, 0x28, 0x77, 0xd9, 0xc2, 0x15, 0x09, 0x57, 0x9d, 0x46, 0x1f, 0x0d, 0xef, 0xd8, 0xd7, 0x99,
-	0xfa, 0x6e, 0x2b, 0x8e, 0x7e, 0xdf, 0x86, 0x0b, 0x47, 0x07, 0x0b, 0x4b, 0x78, 0x30, 0xe5, 0x49,
-	0xc8, 0x62, 0xaa, 0xd8, 0x5e, 0x2c, 0xf0, 0x43, 0x33, 0xcd, 0x50, 0xc1, 0x3c, 0xdd, 0x66, 0x88,
-	0x3c, 0xaa, 0xfa, 0x89, 0xfc, 0x2d, 0x8c, 0xc1, 0xb7, 0x3f, 0x7f, 0x7f, 0x34, 0x1e, 0xe3, 0x9e,
-	0x25, 0x59, 0xfc, 0xd9, 0x77, 0x99, 0xb4, 0xd2, 0x04, 0x5b, 0xde, 0xde, 0xf2, 0x0d, 0xe0, 0xdc,
-	0x34, 0xcf, 0xd3, 0x49, 0xcb, 0x6e, 0x21, 0x94, 0xc2, 0x67, 0x98, 0xda, 0x70, 0x88, 0x9f, 0xd7,
-	0x19, 0x5a, 0x51, 0x6e, 0xf2, 0x13, 0x41, 0xbb, 0x22, 0x8c, 0x78, 0x50, 0x98, 0x9c, 0xce, 0x2a,
-	0x31, 0x6a, 0x9e, 0x30, 0x23, 0x1a, 0x6b, 0x22, 0x13, 0xbf, 0xac, 0x25, 0xfa, 0x72, 0x10, 0xa5,
-	0xaf, 0xf8, 0x17, 0x82, 0xb6, 0x53, 0xcf, 0xe5, 0x9c, 0xc7, 0xf5, 0x46, 0x73, 0xbd, 0x22, 0xff,
-	0xc5, 0x35, 0x41, 0x2f, 0x96, 0x17, 0x7a, 0xf7, 0xeb, 0x7f, 0x01, 0x00, 0x00, 0xff, 0xff, 0xdd,
-	0xd3, 0x28, 0x4e, 0x8c, 0x04, 0x00, 0x00,
+var fileDescriptor_scaler_0d1a5c489ad6b301 = []byte{
+	// 465 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x93, 0xdd, 0x6a, 0xd4, 0x40,
+	0x14, 0xc7, 0xc9, 0x2a, 0x45, 0x4f, 0x77, 0x6b, 0x3b, 0x2b, 0x52, 0x66, 0xeb, 0x07, 0x63, 0xab,
+	0x45, 0x24, 0xc1, 0x5a, 0x10, 0x7a, 0x27, 0x5a, 0x4b, 0xef, 0x64, 0x73, 0xe7, 0xcd, 0x32, 0xdd,
+	0x9c, 0x94, 0x60, 0x32, 0x13, 0x33, 0x13, 0x61, 0x11, 0x6f, 0xbc, 0xf4, 0xd6, 0x1b, 0xc1, 0xa7,
+	0xf0, 0x59, 0x7c, 0x05, 0x1f, 0x44, 0x32, 0xf9, 0x98, 0x6d, 0x93, 0x8d, 0x5f, 0x57, 0x81, 0xff,
+	0x9c, 0x73, 0xfe, 0xbf, 0x9c, 0xf9, 0x0f, 0x0c, 0xd5, 0x9c, 0xc7, 0x98, 0xb9, 0x69, 0x26, 0xb5,
+	0x24, 0xd7, 0xcc, 0xe7, 0x2c, 0x0f, 0xe9, 0xce, 0xb9, 0x94, 0xe7, 0x31, 0x7a, 0x3c, 0x8d, 0x3c,
+	0x2e, 0x84, 0xd4, 0x5c, 0x47, 0x52, 0xa8, 0xb2, 0x8e, 0x4e, 0xaa, 0xd3, 0xba, 0xdc, 0xc3, 0x24,
+	0xd5, 0x8b, 0xf2, 0x90, 0x1d, 0xc1, 0xf8, 0x25, 0xa6, 0xb1, 0x5c, 0x24, 0x28, 0xb4, 0x9a, 0xa2,
+	0x4a, 0xa5, 0x50, 0x48, 0xee, 0xc3, 0x28, 0x68, 0xe4, 0x59, 0x14, 0x6c, 0x3b, 0xf7, 0xae, 0xec,
+	0x5f, 0x9f, 0x0e, 0xad, 0x78, 0x1a, 0xb0, 0x43, 0xd8, 0x7a, 0x1d, 0x73, 0x1d, 0xca, 0x2c, 0xb1,
+	0x9d, 0x77, 0x61, 0x3d, 0xad, 0x44, 0xdb, 0x07, 0xb5, 0x74, 0x1a, 0xb0, 0xe7, 0x40, 0x4f, 0x50,
+	0x5b, 0x53, 0x5f, 0x73, 0x9d, 0xab, 0x29, 0xbe, 0xcb, 0x51, 0xe9, 0x2e, 0x63, 0xa7, 0x65, 0x1c,
+	0xc2, 0xa4, 0x73, 0x44, 0x85, 0x70, 0x02, 0x5b, 0x4b, 0x33, 0x94, 0x39, 0x34, 0x20, 0xeb, 0x07,
+	0xd4, 0xad, 0xb7, 0xe0, 0xb6, 0xda, 0x37, 0x83, 0x4b, 0x0a, 0xfb, 0xec, 0x00, 0xf5, 0xff, 0x8f,
+	0xb5, 0x1b, 0x66, 0xf0, 0x0f, 0x30, 0x6f, 0x61, 0xe2, 0xf7, 0xfc, 0xf4, 0x43, 0xb8, 0x51, 0x2f,
+	0x59, 0xcd, 0x42, 0x99, 0x8b, 0x12, 0x67, 0x34, 0xdd, 0x68, 0xe4, 0x57, 0x85, 0x5a, 0x50, 0xdb,
+	0x42, 0x85, 0x7a, 0x7b, 0x60, 0xca, 0x86, 0x8d, 0xe8, 0xa3, 0x66, 0x6f, 0x60, 0xf3, 0xb2, 0x53,
+	0xfb, 0x66, 0x9d, 0x8b, 0x37, 0x4b, 0xf6, 0x60, 0x23, 0x12, 0x4a, 0x73, 0x31, 0xc7, 0xd9, 0x5c,
+	0xe6, 0xa2, 0x1e, 0x3d, 0xaa, 0xd5, 0x17, 0x85, 0x78, 0xf0, 0xfd, 0x2a, 0xac, 0xf9, 0x26, 0xc8,
+	0x44, 0xc1, 0xcd, 0x63, 0x91, 0x27, 0x98, 0x71, 0x8d, 0x4b, 0x31, 0x24, 0xb7, 0xdc, 0x32, 0xb3,
+	0x76, 0x41, 0xc7, 0x45, 0x66, 0xe9, 0xed, 0xae, 0x8d, 0x35, 0x3b, 0x60, 0xbb, 0x9f, 0x7e, 0xfc,
+	0xfc, 0x32, 0xb8, 0x43, 0x76, 0x3c, 0x85, 0xd9, 0xfb, 0x68, 0x8e, 0xca, 0x2b, 0x5f, 0x8c, 0x17,
+	0x2c, 0x0d, 0x5f, 0x00, 0x69, 0x4c, 0x9b, 0xfc, 0xae, 0xb4, 0x9c, 0x58, 0xa1, 0x15, 0x76, 0xe6,
+	0x1a, 0xc3, 0x7d, 0xf2, 0xa0, 0xcf, 0xd0, 0x6b, 0x36, 0x4b, 0xbe, 0x3a, 0x30, 0xee, 0x48, 0x2e,
+	0xd9, 0xb5, 0x26, 0xab, 0xdf, 0x06, 0xdd, 0xfb, 0x4d, 0x55, 0x05, 0x75, 0x68, 0xa0, 0x5c, 0xf2,
+	0xb8, 0x17, 0xea, 0xc3, 0x85, 0xe8, 0x7e, 0x24, 0xdf, 0x1c, 0x18, 0xfb, 0xfd, 0x68, 0xfe, 0x1f,
+	0xa1, 0xf5, 0x84, 0x94, 0x3d, 0x33, 0x68, 0x4f, 0xe8, 0x5f, 0xa1, 0x1d, 0x39, 0x8f, 0xce, 0xd6,
+	0xcc, 0xf8, 0xa7, 0xbf, 0x02, 0x00, 0x00, 0xff, 0xff, 0x3e, 0xeb, 0xb4, 0x75, 0x02, 0x05, 0x00,
+	0x00,
 }

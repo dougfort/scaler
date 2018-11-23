@@ -12,9 +12,9 @@ import (
 func (s *serverData) GetDeploymentStatus(
 	ctx context.Context,
 	request *pb.GetDeploymentStatusRequest,
-) (*pb.DeploymentStatusResponse, error) {
+) (*pb.GetDeploymentStatusResponse, error) {
 
-	var response pb.DeploymentStatusResponse
+	var response pb.GetDeploymentStatusResponse
 
 	for platformID, platform := range s.platforms {
 		data, isDeployed, err := platform.getDeploymentData(request.DeploymentId)

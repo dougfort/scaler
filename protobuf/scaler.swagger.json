@@ -57,7 +57,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/protobufDeploymentStatusResponse"
+              "$ref": "#/definitions/protobufGetDeploymentStatusResponse"
             }
           }
         },
@@ -74,13 +74,13 @@
         ]
       },
       "put": {
-        "summary": "SetDeploymentStatus sets the desired deployment status \nReturns the known deployment status at time of execution",
+        "summary": "SetDeploymentStatus sets the desired deployment status",
         "operationId": "SetDeploymentStatus",
         "responses": {
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/protobufDeploymentStatusResponse"
+              "$ref": "#/definitions/protobufSetDeploymentStatusResponse"
             }
           }
         },
@@ -115,22 +115,10 @@
         },
         "instance_count": {
           "type": "integer",
-          "format": "int32"
+          "format": "int64"
         }
       },
       "title": "DeploymentStatus is the information about a deployment on an individual platform"
-    },
-    "protobufDeploymentStatusResponse": {
-      "type": "object",
-      "properties": {
-        "deployment_status": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/protobufDeploymentStatus"
-          }
-        }
-      },
-      "title": "DeploymentStatusResponse lists deployment status on all known platforms"
     },
     "protobufDeploymentsResponse": {
       "type": "object",
@@ -143,6 +131,18 @@
         }
       },
       "title": "DeploymentsResponse contains all known deploymwnt IDs"
+    },
+    "protobufGetDeploymentStatusResponse": {
+      "type": "object",
+      "properties": {
+        "deployment_status": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufDeploymentStatus"
+          }
+        }
+      },
+      "title": "GetDeploymentStatusResponse lists deployment status on all known platforms"
     },
     "protobufPlatformsResponse": {
       "type": "object",
@@ -168,7 +168,22 @@
             "$ref": "#/definitions/protobufDeploymentStatus"
           }
         }
-      }
+      },
+      "title": "SetDeploymentStatus requests target deployment status"
+    },
+    "protobufSetDeploymentStatusResponse": {
+      "type": "object",
+      "properties": {
+        "platforms_found": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "platforms_set": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "SetDeploymentStatusResponse reports the result of requesting set"
     }
   }
 }
