@@ -9,6 +9,35 @@ import (
 )
 
 // GetDeploymentStatus lists the status of the deployment on all platforms
-func (s *serverData) GetDeploymentStatus(ctx context.Context, request *pb.GetDeploymentStatusRequest) (*pb.DeploymentStatusResponse, error) {
-	return nil, errors.New("not implemented")
+func (s *serverData) GetDeploymentStatus(
+	ctx context.Context,
+	request *pb.GetDeploymentStatusRequest,
+) (*pb.GetDeploymentStatusResponse, error) {
+
+	var response pb.GetDeploymentStatusResponse
+
+	for platformID, platform := range s.platforms {
+		data, isDeployed, err := platform.getDeploymentData(request.DeploymentId)
+		if err != nil {
+			return nil, errors.Wrapf(err, "platform: %s; GetDeploymentStatus(%s)",
+				platformID, request.DeploymentId)
+		}
+		if isDeployed {
+			response.DeploymentStatus = append(
+				response.DeploymentStatus,
+				&pb.DeploymentStatus{
+					PlatformId:    platformID,
+					InstanceCount: data.instanceCount,
+				},
+			)
+		}
+	}
+
+	s.Logger.Debug().
+		Str("method", "GetDeploymentStatus").
+		Str("deploymentID", request.DeploymentId).
+		Int("platforms-reporting", len(response.DeploymentStatus)).
+		Msg("GetDeploymentStatus")
+
+	return &response, nil
 }

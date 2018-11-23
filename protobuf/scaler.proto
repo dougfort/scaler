@@ -20,20 +20,27 @@ message GetDeploymentStatusRequest {
     string deployment_id = 1;
 }
 
-// DeploymentStatusResponse lists deployment status on all known platforms
-message DeploymentStatusResponse {
+// GetDeploymentStatusResponse lists deployment status on all known platforms
+message GetDeploymentStatusResponse {
     repeated DeploymentStatus deployment_status = 1;
 }
 
+// SetDeploymentStatus requests target deployment status
 message SetDeploymentStatusRequest {
     string deployment_id = 1;
     repeated DeploymentStatus deployment_status = 2;
 }
 
+// SetDeploymentStatusResponse reports the result of requesting set
+message SetDeploymentStatusResponse {
+    uint32 platforms_found = 1;
+    uint32 platforms_set = 2;
+}
+
 // DeploymentStatus is the information about a deployment on an individual platform
 message DeploymentStatus {
     string platform_id = 1;
-    int32 instance_count = 2;
+    uint32 instance_count = 2;
     // resources here
 }
 
@@ -65,7 +72,7 @@ service Scaler {
     // GetDeploymentStatus lists the status of the deployment on all platforms
     rpc GetDeploymentStatus(
         GetDeploymentStatusRequest
-    ) returns (DeploymentStatusResponse) {
+    ) returns (GetDeploymentStatusResponse) {
 
         // REST method
         option (google.api.http) = {
@@ -74,10 +81,9 @@ service Scaler {
     }
 
     // SetDeploymentStatus sets the desired deployment status 
-    // Returns the known deployment status at time of execution
     rpc SetDeploymentStatus(
         SetDeploymentStatusRequest
-    ) returns (DeploymentStatusResponse) {
+    ) returns (SetDeploymentStatusResponse) {
         
         // REST method
         option (google.api.http) = {
