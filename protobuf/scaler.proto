@@ -22,7 +22,7 @@ message GetDeploymentStatusRequest {
 
 // DeploymentStatusResponse lists deployment status on all known platforms
 message DeploymentStatusResponse {
-    repeated DeploymentStatus deployment_status = 1;
+    bool ok = 1;
 }
 
 message SetDeploymentStatusRequest {
@@ -33,7 +33,7 @@ message SetDeploymentStatusRequest {
 // DeploymentStatus is the information about a deployment on an individual platform
 message DeploymentStatus {
     string platform_id = 1;
-    int32 instance_count = 2;
+    uint32 instance_count = 2;
     // resources here
 }
 
@@ -74,7 +74,6 @@ service Scaler {
     }
 
     // SetDeploymentStatus sets the desired deployment status 
-    // Returns the known deployment status at time of execution
     rpc SetDeploymentStatus(
         SetDeploymentStatusRequest
     ) returns (DeploymentStatusResponse) {
