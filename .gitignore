@@ -2,3 +2,6 @@ vendor
 .DS_Store
 build/
 *.rpm
+cmd/grpc_client/docker/scaler_client
+cmd/server/docker/scaler
+cmd/server/docker/settings.toml

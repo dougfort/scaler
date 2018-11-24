@@ -1,0 +1,30 @@
+version: '2'
+services:
+
+  scaler:
+    build: ./cmd/server/docker
+    networks:
+        scaler:
+            aliases:
+              - server
+    expose:
+      - "10000"
+      - "8080"
+    ports:
+      - "10000:10000"
+      - "8080:8080"
+
+  scaler_client:
+    build: ./cmd/grpc_client/docker
+    depends_on:
+      - scaler
+    environment:
+      SCALER_ADDRESS: "scaler:10000"
+    networks:
+        scaler:
+            aliases:
+                - client
+
+# network configuration
+networks:
+  scaler: {}

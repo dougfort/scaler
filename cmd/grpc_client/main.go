@@ -14,20 +14,20 @@ import (
 
 	"github.com/deciphernow/gm-fabric-go/tlsutil"
 
-    pb "github.com/dougfort/scaler/protobuf"
+	pb "github.com/dougfort/scaler/protobuf"
 )
 
 func main() {
-    os.Exit(run())
+	os.Exit(run())
 }
 
 func run() int {
-    var grpcServerAddress string
+	var grpcServerAddress string
 	var testCertDir string
-    var client pb.ScalerClient
-    var err error
+	var client pb.ScalerClient
+	var err error
 
-    logger := zerolog.New(os.Stderr).With().Timestamp().Logger().
+	logger := zerolog.New(os.Stderr).With().Timestamp().Logger().
 		Output(zerolog.ConsoleWriter{Out: os.Stderr})
 
 	pflag.StringVar(
@@ -43,27 +43,30 @@ func run() int {
 		"(if TLS) directory holding test certificates",
 	)
 	pflag.Parse()
-    if grpcServerAddress == "" {
-        logger.Error().Msg("You must specify server address. (--address)")
-        return 1
-    }
-
-    logger.Info().Str("grpc-client", "scaler").
-    Str("address", grpcServerAddress).
-    Str("test-certs", testCertDir).Msg("starting")
-
-    if client, err = newClient(grpcServerAddress, testCertDir); err != nil {
-        logger.Error().AnErr("newClient", err).Msg("")
-        return 1
+	if grpcServerAddress == "" {
+		grpcServerAddress = os.Getenv("SCALER_ADDRESS")
+		if grpcServerAddress == "" {
+			logger.Error().Msg("You must specify server address. (--address)")
+			return 1
+		}
 	}
 
-    if err = runTest(logger, client); err != nil {
-        logger.Error().AnErr("runTest", err).Msg("")
-        return 1
+	logger.Info().Str("grpc-client", "scaler").
+		Str("address", grpcServerAddress).
+		Str("test-certs", testCertDir).Msg("starting")
+
+	if client, err = newClient(grpcServerAddress, testCertDir); err != nil {
+		logger.Error().AnErr("newClient", err).Msg("")
+		return 1
 	}
 
-    logger.Info().Str("grpc client", "scaler").Msg("terminating normally")
-    return 0
+	if err = runTest(logger, client); err != nil {
+		logger.Error().AnErr("runTest", err).Msg("")
+		return 1
+	}
+
+	logger.Info().Str("grpc client", "scaler").Msg("terminating normally")
+	return 0
 }
 
 func newClient(
@@ -81,9 +84,9 @@ func newClient(
 		var tlsConf *tls.Config
 
 		tlsConf, err := tlsutil.NewTLSClientConfig(
-			filepath.Join(testCertDir, "intermediate.crt"), 
+			filepath.Join(testCertDir, "intermediate.crt"),
 			filepath.Join(testCertDir, "localhost.crt"),
-			filepath.Join(testCertDir, "localhost.key"), 
+			filepath.Join(testCertDir, "localhost.key"),
 			"localhost",
 		)
 		if err != nil {
