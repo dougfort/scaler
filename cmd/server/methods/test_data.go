@@ -4,12 +4,12 @@ func (s *serverData) loadTestData() {
 	// TODO: read test data from a file
 
 	for _, item := range []struct {
-		platformID    string
-		deploymentIDs []string
+		platformID string
+		serviceIDs []string
 	}{
 		{
 			platformID: "platform-001",
-			deploymentIDs: []string{
+			serviceIDs: []string{
 				"deployment-001",
 				"deployment-002",
 				"deployment-003",
@@ -17,7 +17,7 @@ func (s *serverData) loadTestData() {
 		},
 		{
 			platformID: "platform-002",
-			deploymentIDs: []string{
+			serviceIDs: []string{
 				"deployment-001",
 				"deployment-002",
 				"deployment-004",
@@ -25,7 +25,7 @@ func (s *serverData) loadTestData() {
 		},
 		{
 			platformID: "platform-003",
-			deploymentIDs: []string{
+			serviceIDs: []string{
 				"deployment-001",
 				"deployment-003",
 				"deployment-004",
@@ -33,14 +33,14 @@ func (s *serverData) loadTestData() {
 		},
 		{
 			platformID: "platform-004",
-			deploymentIDs: []string{
+			serviceIDs: []string{
 				"deployment-002",
 				"deployment-003",
 				"deployment-004",
 			},
 		},
 	} {
-		s.platforms[item.platformID] = newPlatform(item.deploymentIDs)
+		s.platforms[item.platformID] = newPlatform(item.serviceIDs)
 	}
 
 }

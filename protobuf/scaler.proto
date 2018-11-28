@@ -5,40 +5,52 @@ package protobuf;
 import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";
 
-// DeploymentsResponse contains all known deploymwnt IDs
-message DeploymentsResponse {
-    repeated string deployment_id = 1;
+// EnumerateServicesResponse contains all known service IDs
+message EnumerateServicesResponse {
+    repeated string service_id = 1;
 }
 
-// PlatformsResponse contains all known platform IDs
-message PlatformsResponse {
+// EnumeratePlatformsResponse contains all known platform IDs
+message EnumeratePlatformsResponse {
     repeated string platform_id = 1;
 }
 
-// GetDeploymentStatusRequest requests the status of a deployment
-message GetDeploymentStatusRequest {
-    string deployment_id = 1;
+// GetServiceStateRequest requests the state of a service
+message GetServiceStateRequest {
+    string service_id = 1;
 }
 
-// GetDeploymentStatusResponse lists deployment status on all known platforms
-message GetDeploymentStatusResponse {
-    repeated DeploymentStatus deployment_status = 1;
+// GetServiceStateResponse lists state on all known platforms
+message GetServiceStateResponse {
+    repeated ServiceState service_state = 1;
 }
 
-// SetDeploymentStatus requests target deployment status
-message SetDeploymentStatusRequest {
-    string deployment_id = 1;
-    repeated DeploymentStatus deployment_status = 2;
+// SetServiceStateRequest initiates a change in the state of a service
+message SetServiceStateRequest {
+    string service_id = 1;
+    repeated ServiceState service_state = 2;
 }
 
-// SetDeploymentStatusResponse reports the result of requesting set
-message SetDeploymentStatusResponse {
-    uint32 platforms_found = 1;
-    uint32 platforms_set = 2;
+// SetServiceStateResponse returns a unique request ID for tracking the
+// requested change in the state of a service
+message SetServiceStateResponse {
+    string request_id = 1;
 }
 
-// DeploymentStatus is the information about a deployment on an individual platform
-message DeploymentStatus {
+// PollStateChangeRequest requests the status of a SetServiceStateRequest
+message PollStateChangeRequest {
+    string request_id = 1;
+}
+
+// PollStateChangeResponse reports the status of a SetServiceStateRequest 
+message PollStateChangeResponse {
+    bool is_completed = 1;
+    bool is_successful = 2;
+    string message = 3;
+}
+
+// ServiceState is the information about a deployment on an individual platform
+message ServiceState {
     string platform_id = 1;
     uint32 instance_count = 2;
     // resources here
@@ -47,49 +59,62 @@ message DeploymentStatus {
 // Interface exported by the server.
 service Scaler {
 
-    // EnumerateDeployments lists all known deployment IDs
-    rpc EnumerateDeployments(
+    // EnumerateServices lists all known service IDs
+    rpc EnumerateServices(
         google.protobuf.Empty
-    ) returns (DeploymentsResponse) {
+    ) returns (EnumerateServicesResponse) {
  
         // REST method
         option (google.api.http) = {
-            get: "/services/scaler/deployments"
+            get: "/services/scaler/services"
        };       
     }
 
     // EnumeratePlatforms lists all known platform IDs
     rpc EnumeratePlatforms(
         google.protobuf.Empty
-    ) returns (PlatformsResponse) {
+    ) returns (EnumeratePlatformsResponse) {
  
         // REST method
         option (google.api.http) = {
-            get: "/services/scaler/deployments/platforms"
+            get: "/services/scaler/services/platforms"
        };       
     }
 
-    // GetDeploymentStatus lists the status of the deployment on all platforms
-    rpc GetDeploymentStatus(
-        GetDeploymentStatusRequest
-    ) returns (GetDeploymentStatusResponse) {
+    // GetServiceState lists the state of the service on all platforms
+    rpc GetServiceState(
+        GetServiceStateRequest
+    ) returns (GetServiceStateResponse) {
 
         // REST method
         option (google.api.http) = {
-            get: "/services/scaler/deployments/{deployment_id}"
+            get: "/services/scaler/services/{service_id}"
         };
     }
 
-    // SetDeploymentStatus sets the desired deployment status 
-    rpc SetDeploymentStatus(
-        SetDeploymentStatusRequest
-    ) returns (SetDeploymentStatusResponse) {
+    // SetServiceState initiates a request to change the state of a service
+    // Returns a unique request_id for tracking the status of the request
+    rpc SetServiceState(
+        SetServiceStateRequest
+    ) returns (SetServiceStateResponse) {
         
         // REST method
         option (google.api.http) = {
-            put: "/services/scaler/deployments/{deployment_id}"
+            put: "/services/scaler/services/{service_id}"
             body: "*"
         };
     }
+
+    // PollStateChange checks the status of a SetServiceState request
+    rpc PollStateChange(
+        PollStateChangeRequest
+    ) returns (PollStateChangeResponse) {
+
+        // REST method
+        option (google.api.http) = {
+            get: "/services/scaler/services/requests/{request_id}"
+        };
+    }
+
 }
 

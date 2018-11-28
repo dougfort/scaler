@@ -9,10 +9,10 @@ import (
 
 // EnumeratePlatforms lists all known platform IDs
 func (s *serverData) EnumeratePlatforms(
-	ctx context.Context,
-	request *empty.Empty,
-) (*pb.PlatformsResponse, error) {
-	var response pb.PlatformsResponse
+	_ context.Context,
+	_ *empty.Empty,
+) (*pb.EnumeratePlatformsResponse, error) {
+	var response pb.EnumeratePlatformsResponse
 
 	for platformID := range s.platforms {
 		response.PlatformId = append(response.PlatformId, platformID)

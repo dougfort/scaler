@@ -15,15 +15,15 @@
     "application/json"
   ],
   "paths": {
-    "/services/scaler/deployments": {
+    "/services/scaler/services": {
       "get": {
-        "summary": "EnumerateDeployments lists all known deployment IDs",
-        "operationId": "EnumerateDeployments",
+        "summary": "EnumerateServices lists all known service IDs",
+        "operationId": "EnumerateServices",
         "responses": {
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/protobufDeploymentsResponse"
+              "$ref": "#/definitions/protobufEnumerateServicesResponse"
             }
           }
         },
@@ -32,7 +32,7 @@
         ]
       }
     },
-    "/services/scaler/deployments/platforms": {
+    "/services/scaler/services/platforms": {
       "get": {
         "summary": "EnumeratePlatforms lists all known platform IDs",
         "operationId": "EnumeratePlatforms",
@@ -40,7 +40,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/protobufPlatformsResponse"
+              "$ref": "#/definitions/protobufEnumeratePlatformsResponse"
             }
           }
         },
@@ -49,21 +49,46 @@
         ]
       }
     },
-    "/services/scaler/deployments/{deployment_id}": {
+    "/services/scaler/services/requests/{request_id}": {
       "get": {
-        "summary": "GetDeploymentStatus lists the status of the deployment on all platforms",
-        "operationId": "GetDeploymentStatus",
+        "summary": "PollStateChange checks the status of a SetServiceState request",
+        "operationId": "PollStateChange",
         "responses": {
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/protobufGetDeploymentStatusResponse"
+              "$ref": "#/definitions/protobufPollStateChangeResponse"
             }
           }
         },
         "parameters": [
           {
-            "name": "deployment_id",
+            "name": "request_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Scaler"
+        ]
+      }
+    },
+    "/services/scaler/services/{service_id}": {
+      "get": {
+        "summary": "GetServiceState lists the state of the service on all platforms",
+        "operationId": "GetServiceState",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/protobufGetServiceStateResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "service_id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -74,19 +99,19 @@
         ]
       },
       "put": {
-        "summary": "SetDeploymentStatus sets the desired deployment status",
-        "operationId": "SetDeploymentStatus",
+        "summary": "SetServiceState initiates a request to change the state of a service\nReturns a unique request_id for tracking the status of the request",
+        "operationId": "SetServiceState",
         "responses": {
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/protobufSetDeploymentStatusResponse"
+              "$ref": "#/definitions/protobufSetServiceStateResponse"
             }
           }
         },
         "parameters": [
           {
-            "name": "deployment_id",
+            "name": "service_id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -96,7 +121,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/protobufSetDeploymentStatusRequest"
+              "$ref": "#/definitions/protobufSetServiceStateRequest"
             }
           }
         ],
@@ -107,7 +132,60 @@
     }
   },
   "definitions": {
-    "protobufDeploymentStatus": {
+    "protobufEnumeratePlatformsResponse": {
+      "type": "object",
+      "properties": {
+        "platform_id": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "EnumeratePlatformsResponse contains all known platform IDs"
+    },
+    "protobufEnumerateServicesResponse": {
+      "type": "object",
+      "properties": {
+        "service_id": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "EnumerateServicesResponse contains all known service IDs"
+    },
+    "protobufGetServiceStateResponse": {
+      "type": "object",
+      "properties": {
+        "service_state": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufServiceState"
+          }
+        }
+      },
+      "title": "GetServiceStateResponse lists state on all known platforms"
+    },
+    "protobufPollStateChangeResponse": {
+      "type": "object",
+      "properties": {
+        "is_completed": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "is_successful": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "PollStateChangeResponse reports the status of a SetServiceStateRequest"
+    },
+    "protobufServiceState": {
       "type": "object",
       "properties": {
         "platform_id": {
@@ -118,72 +196,31 @@
           "format": "int64"
         }
       },
-      "title": "DeploymentStatus is the information about a deployment on an individual platform"
+      "title": "ServiceState is the information about a deployment on an individual platform"
     },
-    "protobufDeploymentsResponse": {
+    "protobufSetServiceStateRequest": {
       "type": "object",
       "properties": {
-        "deployment_id": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "title": "DeploymentsResponse contains all known deploymwnt IDs"
-    },
-    "protobufGetDeploymentStatusResponse": {
-      "type": "object",
-      "properties": {
-        "deployment_status": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/protobufDeploymentStatus"
-          }
-        }
-      },
-      "title": "GetDeploymentStatusResponse lists deployment status on all known platforms"
-    },
-    "protobufPlatformsResponse": {
-      "type": "object",
-      "properties": {
-        "platform_id": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "title": "PlatformsResponse contains all known platform IDs"
-    },
-    "protobufSetDeploymentStatusRequest": {
-      "type": "object",
-      "properties": {
-        "deployment_id": {
+        "service_id": {
           "type": "string"
         },
-        "deployment_status": {
+        "service_state": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/protobufDeploymentStatus"
+            "$ref": "#/definitions/protobufServiceState"
           }
         }
       },
-      "title": "SetDeploymentStatus requests target deployment status"
+      "title": "SetServiceStateRequest initiates a change in the state of a service"
     },
-    "protobufSetDeploymentStatusResponse": {
+    "protobufSetServiceStateResponse": {
       "type": "object",
       "properties": {
-        "platforms_found": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "platforms_set": {
-          "type": "integer",
-          "format": "int64"
+        "request_id": {
+          "type": "string"
         }
       },
-      "title": "SetDeploymentStatusResponse reports the result of requesting set"
+      "title": "SetServiceStateResponse returns a unique request ID for tracking the\nrequested change in the state of a service"
     }
   }
 }

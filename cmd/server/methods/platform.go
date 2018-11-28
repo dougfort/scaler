@@ -1,59 +1,59 @@
 package methods
 
-type deploymentData struct {
+type serviceData struct {
 	instanceCount uint32
 	// TODO: resources
 }
 
 type platformData struct {
-	deployments map[string]deploymentData
+	services map[string]serviceData
 }
 
-func newPlatform(deploymentIDs []string) *platformData {
+func newPlatform(serviceIDs []string) *platformData {
 	var p platformData
 
-	p.deployments = make(map[string]deploymentData)
-	for _, d := range deploymentIDs {
-		p.deployments[d] = deploymentData{}
+	p.services = make(map[string]serviceData)
+	for _, d := range serviceIDs {
+		p.services[d] = serviceData{}
 	}
 
 	return &p
 }
 
-func (p *platformData) enumerateDeployments() []string {
-	var deploymentIDs []string
+func (p *platformData) enumerateServices() []string {
+	var serviceIDs []string
 
-	for deploymentID := range p.deployments {
-		deploymentIDs = append(deploymentIDs, deploymentID)
+	for serviceID := range p.services {
+		serviceIDs = append(serviceIDs, serviceID)
 	}
 
-	return deploymentIDs
+	return serviceIDs
 }
 
-// getDeploymentData returns false if the deployment does not exist on
+// getServiceState returns false if the service does not exist on
 // this platform. That is different from having zero instances.
-func (p *platformData) getDeploymentData(
-	deploymentID string,
-) (deploymentData, bool, error) {
-	data, ok := p.deployments[deploymentID]
+func (p *platformData) getServiceState(
+	serviceID string,
+) (serviceData, bool, error) {
+	data, ok := p.services[serviceID]
 	if !ok {
 		return data, false, nil
 	}
 	return data, true, nil
 }
 
-// setDeploymentData returns false if the deployment does not exist on
+// setServiceState returns false if the deployment does not exist on
 // this platform. That is different from having zero instances.
-func (p *platformData) setDeploymentData(
-	deploymentID string,
-	data deploymentData,
+func (p *platformData) setServiceState(
+	serviceID string,
+	data serviceData,
 ) (bool, error) {
-	_, ok := p.deployments[deploymentID]
+	_, ok := p.services[serviceID]
 	if !ok {
 		return false, nil
 	}
 
-	p.deployments[deploymentID] = data
+	p.services[serviceID] = data
 
 	return true, nil
 }
