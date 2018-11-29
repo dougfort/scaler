@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/golang/protobuf/ptypes/empty"
 	"github.com/pkg/errors"
@@ -71,7 +72,37 @@ func runTest(logger zerolog.Logger, client pb.ScalerClient) error {
 		return errors.Wrapf(err, "SetServiceState(%s) failed", testServiceID)
 	}
 
-	logger.Debug().Msgf("setResponse = %v", setResponse)
+	logger.Debug().Msgf("request-id = %s", setResponse.RequestId)
+
+	pollResponse, err := client.PollStateChange(
+		ctx, &pb.PollStateChangeRequest{RequestId: setResponse.RequestId},
+	)
+
+	if err != nil {
+		return errors.Wrapf(err, "PollStateChange(%s) failed",
+			setResponse.RequestId)
+	}
+
+	// we expect the first one to be in progress
+	if pollResponse.IsCompleted {
+		return fmt.Errorf("unexpected completion: successful = %t, %s",
+			pollResponse.IsSuccessful, pollResponse.Message)
+	}
+
+	pollResponse, err = client.PollStateChange(
+		ctx, &pb.PollStateChangeRequest{RequestId: setResponse.RequestId},
+	)
+
+	if err != nil {
+		return errors.Wrapf(err, "PollStateChange(%s) failed",
+			setResponse.RequestId)
+	}
+
+	// we expect the next one to complete
+	if !pollResponse.IsCompleted {
+		return fmt.Errorf("expected completion: successful = %t, %s",
+			pollResponse.IsSuccessful, pollResponse.Message)
+	}
 
 	getResponse, err = client.GetServiceState(
 		ctx,

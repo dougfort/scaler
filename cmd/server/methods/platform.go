@@ -9,7 +9,7 @@ type platformData struct {
 	services map[string]serviceData
 }
 
-func newPlatform(serviceIDs []string) *platformData {
+func newPlatform(serviceIDs []string) platformData {
 	var p platformData
 
 	p.services = make(map[string]serviceData)
@@ -17,7 +17,7 @@ func newPlatform(serviceIDs []string) *platformData {
 		p.services[d] = serviceData{}
 	}
 
-	return &p
+	return p
 }
 
 func (p *platformData) enumerateServices() []string {

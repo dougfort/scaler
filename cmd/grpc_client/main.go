@@ -83,7 +83,7 @@ func newClient(
 	} else {
 		var tlsConf *tls.Config
 
-		tlsConf, err := tlsutil.NewTLSClientConfig(
+		tlsConf, err = tlsutil.NewTLSClientConfig(
 			filepath.Join(testCertDir, "intermediate.crt"),
 			filepath.Join(testCertDir, "localhost.crt"),
 			filepath.Join(testCertDir, "localhost.key"),
