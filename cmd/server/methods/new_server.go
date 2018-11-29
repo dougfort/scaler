@@ -9,7 +9,9 @@ import (
 
 type serverData struct {
 	zerolog.Logger
-	platforms map[string]*platformData
+	nextRequestID int64 // We should use a UUID
+	requests      map[string]requestStruct
+	platforms     map[string]platformData
 }
 
 // CreateAndRegisterServer returns an object that implements the  interface
@@ -18,8 +20,10 @@ func CreateAndRegisterServer(
 	grpcServer *grpc.Server,
 ) {
 	s := &serverData{
-		Logger:    logger,
-		platforms: make(map[string]*platformData),
+		Logger:        logger,
+		nextRequestID: 1,
+		requests:      make(map[string]requestStruct),
+		platforms:     make(map[string]platformData),
 	}
 
 	s.loadTestData()

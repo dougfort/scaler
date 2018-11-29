@@ -25,258 +25,345 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
-// DeploymentsResponse contains all known deploymwnt IDs
-type DeploymentsResponse struct {
-	DeploymentId         []string `protobuf:"bytes,1,rep,name=deployment_id,json=deploymentId,proto3" json:"deployment_id,omitempty"`
+// EnumerateServicesResponse contains all known service IDs
+type EnumerateServicesResponse struct {
+	ServiceId            []string `protobuf:"bytes,1,rep,name=service_id,json=serviceId,proto3" json:"service_id,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeploymentsResponse) Reset()         { *m = DeploymentsResponse{} }
-func (m *DeploymentsResponse) String() string { return proto.CompactTextString(m) }
-func (*DeploymentsResponse) ProtoMessage()    {}
-func (*DeploymentsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_scaler_0d1a5c489ad6b301, []int{0}
+func (m *EnumerateServicesResponse) Reset()         { *m = EnumerateServicesResponse{} }
+func (m *EnumerateServicesResponse) String() string { return proto.CompactTextString(m) }
+func (*EnumerateServicesResponse) ProtoMessage()    {}
+func (*EnumerateServicesResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_scaler_433553de266d0143, []int{0}
 }
-func (m *DeploymentsResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_DeploymentsResponse.Unmarshal(m, b)
+func (m *EnumerateServicesResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_EnumerateServicesResponse.Unmarshal(m, b)
 }
-func (m *DeploymentsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_DeploymentsResponse.Marshal(b, m, deterministic)
+func (m *EnumerateServicesResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_EnumerateServicesResponse.Marshal(b, m, deterministic)
 }
-func (dst *DeploymentsResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_DeploymentsResponse.Merge(dst, src)
+func (dst *EnumerateServicesResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_EnumerateServicesResponse.Merge(dst, src)
 }
-func (m *DeploymentsResponse) XXX_Size() int {
-	return xxx_messageInfo_DeploymentsResponse.Size(m)
+func (m *EnumerateServicesResponse) XXX_Size() int {
+	return xxx_messageInfo_EnumerateServicesResponse.Size(m)
 }
-func (m *DeploymentsResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_DeploymentsResponse.DiscardUnknown(m)
+func (m *EnumerateServicesResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_EnumerateServicesResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_DeploymentsResponse proto.InternalMessageInfo
+var xxx_messageInfo_EnumerateServicesResponse proto.InternalMessageInfo
 
-func (m *DeploymentsResponse) GetDeploymentId() []string {
+func (m *EnumerateServicesResponse) GetServiceId() []string {
 	if m != nil {
-		return m.DeploymentId
+		return m.ServiceId
 	}
 	return nil
 }
 
-// PlatformsResponse contains all known platform IDs
-type PlatformsResponse struct {
+// EnumeratePlatformsResponse contains all known platform IDs
+type EnumeratePlatformsResponse struct {
 	PlatformId           []string `protobuf:"bytes,1,rep,name=platform_id,json=platformId,proto3" json:"platform_id,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *PlatformsResponse) Reset()         { *m = PlatformsResponse{} }
-func (m *PlatformsResponse) String() string { return proto.CompactTextString(m) }
-func (*PlatformsResponse) ProtoMessage()    {}
-func (*PlatformsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_scaler_0d1a5c489ad6b301, []int{1}
+func (m *EnumeratePlatformsResponse) Reset()         { *m = EnumeratePlatformsResponse{} }
+func (m *EnumeratePlatformsResponse) String() string { return proto.CompactTextString(m) }
+func (*EnumeratePlatformsResponse) ProtoMessage()    {}
+func (*EnumeratePlatformsResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_scaler_433553de266d0143, []int{1}
 }
-func (m *PlatformsResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_PlatformsResponse.Unmarshal(m, b)
+func (m *EnumeratePlatformsResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_EnumeratePlatformsResponse.Unmarshal(m, b)
 }
-func (m *PlatformsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_PlatformsResponse.Marshal(b, m, deterministic)
+func (m *EnumeratePlatformsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_EnumeratePlatformsResponse.Marshal(b, m, deterministic)
 }
-func (dst *PlatformsResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_PlatformsResponse.Merge(dst, src)
+func (dst *EnumeratePlatformsResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_EnumeratePlatformsResponse.Merge(dst, src)
 }
-func (m *PlatformsResponse) XXX_Size() int {
-	return xxx_messageInfo_PlatformsResponse.Size(m)
+func (m *EnumeratePlatformsResponse) XXX_Size() int {
+	return xxx_messageInfo_EnumeratePlatformsResponse.Size(m)
 }
-func (m *PlatformsResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_PlatformsResponse.DiscardUnknown(m)
+func (m *EnumeratePlatformsResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_EnumeratePlatformsResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_PlatformsResponse proto.InternalMessageInfo
+var xxx_messageInfo_EnumeratePlatformsResponse proto.InternalMessageInfo
 
-func (m *PlatformsResponse) GetPlatformId() []string {
+func (m *EnumeratePlatformsResponse) GetPlatformId() []string {
 	if m != nil {
 		return m.PlatformId
 	}
 	return nil
 }
 
-// GetDeploymentStatusRequest requests the status of a deployment
-type GetDeploymentStatusRequest struct {
-	DeploymentId         string   `protobuf:"bytes,1,opt,name=deployment_id,json=deploymentId,proto3" json:"deployment_id,omitempty"`
+// GetServiceStateRequest requests the state of a service
+type GetServiceStateRequest struct {
+	ServiceId            string   `protobuf:"bytes,1,opt,name=service_id,json=serviceId,proto3" json:"service_id,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GetDeploymentStatusRequest) Reset()         { *m = GetDeploymentStatusRequest{} }
-func (m *GetDeploymentStatusRequest) String() string { return proto.CompactTextString(m) }
-func (*GetDeploymentStatusRequest) ProtoMessage()    {}
-func (*GetDeploymentStatusRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_scaler_0d1a5c489ad6b301, []int{2}
+func (m *GetServiceStateRequest) Reset()         { *m = GetServiceStateRequest{} }
+func (m *GetServiceStateRequest) String() string { return proto.CompactTextString(m) }
+func (*GetServiceStateRequest) ProtoMessage()    {}
+func (*GetServiceStateRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_scaler_433553de266d0143, []int{2}
 }
-func (m *GetDeploymentStatusRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetDeploymentStatusRequest.Unmarshal(m, b)
+func (m *GetServiceStateRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetServiceStateRequest.Unmarshal(m, b)
 }
-func (m *GetDeploymentStatusRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetDeploymentStatusRequest.Marshal(b, m, deterministic)
+func (m *GetServiceStateRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetServiceStateRequest.Marshal(b, m, deterministic)
 }
-func (dst *GetDeploymentStatusRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetDeploymentStatusRequest.Merge(dst, src)
+func (dst *GetServiceStateRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetServiceStateRequest.Merge(dst, src)
 }
-func (m *GetDeploymentStatusRequest) XXX_Size() int {
-	return xxx_messageInfo_GetDeploymentStatusRequest.Size(m)
+func (m *GetServiceStateRequest) XXX_Size() int {
+	return xxx_messageInfo_GetServiceStateRequest.Size(m)
 }
-func (m *GetDeploymentStatusRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetDeploymentStatusRequest.DiscardUnknown(m)
+func (m *GetServiceStateRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetServiceStateRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_GetDeploymentStatusRequest proto.InternalMessageInfo
+var xxx_messageInfo_GetServiceStateRequest proto.InternalMessageInfo
 
-func (m *GetDeploymentStatusRequest) GetDeploymentId() string {
+func (m *GetServiceStateRequest) GetServiceId() string {
 	if m != nil {
-		return m.DeploymentId
+		return m.ServiceId
 	}
 	return ""
 }
 
-// GetDeploymentStatusResponse lists deployment status on all known platforms
-type GetDeploymentStatusResponse struct {
-	DeploymentStatus     []*DeploymentStatus `protobuf:"bytes,1,rep,name=deployment_status,json=deploymentStatus,proto3" json:"deployment_status,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}            `json:"-"`
-	XXX_unrecognized     []byte              `json:"-"`
-	XXX_sizecache        int32               `json:"-"`
+// GetServiceStateResponse lists state on all known platforms
+type GetServiceStateResponse struct {
+	ServiceState         []*ServiceState `protobuf:"bytes,1,rep,name=service_state,json=serviceState,proto3" json:"service_state,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
+	XXX_unrecognized     []byte          `json:"-"`
+	XXX_sizecache        int32           `json:"-"`
 }
 
-func (m *GetDeploymentStatusResponse) Reset()         { *m = GetDeploymentStatusResponse{} }
-func (m *GetDeploymentStatusResponse) String() string { return proto.CompactTextString(m) }
-func (*GetDeploymentStatusResponse) ProtoMessage()    {}
-func (*GetDeploymentStatusResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_scaler_0d1a5c489ad6b301, []int{3}
+func (m *GetServiceStateResponse) Reset()         { *m = GetServiceStateResponse{} }
+func (m *GetServiceStateResponse) String() string { return proto.CompactTextString(m) }
+func (*GetServiceStateResponse) ProtoMessage()    {}
+func (*GetServiceStateResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_scaler_433553de266d0143, []int{3}
 }
-func (m *GetDeploymentStatusResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetDeploymentStatusResponse.Unmarshal(m, b)
+func (m *GetServiceStateResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetServiceStateResponse.Unmarshal(m, b)
 }
-func (m *GetDeploymentStatusResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetDeploymentStatusResponse.Marshal(b, m, deterministic)
+func (m *GetServiceStateResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetServiceStateResponse.Marshal(b, m, deterministic)
 }
-func (dst *GetDeploymentStatusResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetDeploymentStatusResponse.Merge(dst, src)
+func (dst *GetServiceStateResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetServiceStateResponse.Merge(dst, src)
 }
-func (m *GetDeploymentStatusResponse) XXX_Size() int {
-	return xxx_messageInfo_GetDeploymentStatusResponse.Size(m)
+func (m *GetServiceStateResponse) XXX_Size() int {
+	return xxx_messageInfo_GetServiceStateResponse.Size(m)
 }
-func (m *GetDeploymentStatusResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetDeploymentStatusResponse.DiscardUnknown(m)
+func (m *GetServiceStateResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetServiceStateResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_GetDeploymentStatusResponse proto.InternalMessageInfo
+var xxx_messageInfo_GetServiceStateResponse proto.InternalMessageInfo
 
-func (m *GetDeploymentStatusResponse) GetDeploymentStatus() []*DeploymentStatus {
+func (m *GetServiceStateResponse) GetServiceState() []*ServiceState {
 	if m != nil {
-		return m.DeploymentStatus
+		return m.ServiceState
 	}
 	return nil
 }
 
-// SetDeploymentStatus requests target deployment status
-type SetDeploymentStatusRequest struct {
-	DeploymentId         string              `protobuf:"bytes,1,opt,name=deployment_id,json=deploymentId,proto3" json:"deployment_id,omitempty"`
-	DeploymentStatus     []*DeploymentStatus `protobuf:"bytes,2,rep,name=deployment_status,json=deploymentStatus,proto3" json:"deployment_status,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}            `json:"-"`
-	XXX_unrecognized     []byte              `json:"-"`
-	XXX_sizecache        int32               `json:"-"`
+// SetServiceStateRequest initiates a change in the state of a service
+type SetServiceStateRequest struct {
+	ServiceId            string          `protobuf:"bytes,1,opt,name=service_id,json=serviceId,proto3" json:"service_id,omitempty"`
+	ServiceState         []*ServiceState `protobuf:"bytes,2,rep,name=service_state,json=serviceState,proto3" json:"service_state,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
+	XXX_unrecognized     []byte          `json:"-"`
+	XXX_sizecache        int32           `json:"-"`
 }
 
-func (m *SetDeploymentStatusRequest) Reset()         { *m = SetDeploymentStatusRequest{} }
-func (m *SetDeploymentStatusRequest) String() string { return proto.CompactTextString(m) }
-func (*SetDeploymentStatusRequest) ProtoMessage()    {}
-func (*SetDeploymentStatusRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_scaler_0d1a5c489ad6b301, []int{4}
+func (m *SetServiceStateRequest) Reset()         { *m = SetServiceStateRequest{} }
+func (m *SetServiceStateRequest) String() string { return proto.CompactTextString(m) }
+func (*SetServiceStateRequest) ProtoMessage()    {}
+func (*SetServiceStateRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_scaler_433553de266d0143, []int{4}
 }
-func (m *SetDeploymentStatusRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SetDeploymentStatusRequest.Unmarshal(m, b)
+func (m *SetServiceStateRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SetServiceStateRequest.Unmarshal(m, b)
 }
-func (m *SetDeploymentStatusRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SetDeploymentStatusRequest.Marshal(b, m, deterministic)
+func (m *SetServiceStateRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SetServiceStateRequest.Marshal(b, m, deterministic)
 }
-func (dst *SetDeploymentStatusRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SetDeploymentStatusRequest.Merge(dst, src)
+func (dst *SetServiceStateRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SetServiceStateRequest.Merge(dst, src)
 }
-func (m *SetDeploymentStatusRequest) XXX_Size() int {
-	return xxx_messageInfo_SetDeploymentStatusRequest.Size(m)
+func (m *SetServiceStateRequest) XXX_Size() int {
+	return xxx_messageInfo_SetServiceStateRequest.Size(m)
 }
-func (m *SetDeploymentStatusRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_SetDeploymentStatusRequest.DiscardUnknown(m)
+func (m *SetServiceStateRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_SetServiceStateRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_SetDeploymentStatusRequest proto.InternalMessageInfo
+var xxx_messageInfo_SetServiceStateRequest proto.InternalMessageInfo
 
-func (m *SetDeploymentStatusRequest) GetDeploymentId() string {
+func (m *SetServiceStateRequest) GetServiceId() string {
 	if m != nil {
-		return m.DeploymentId
+		return m.ServiceId
 	}
 	return ""
 }
 
-func (m *SetDeploymentStatusRequest) GetDeploymentStatus() []*DeploymentStatus {
+func (m *SetServiceStateRequest) GetServiceState() []*ServiceState {
 	if m != nil {
-		return m.DeploymentStatus
+		return m.ServiceState
 	}
 	return nil
 }
 
-// SetDeploymentStatusResponse reports the result of requesting set
-type SetDeploymentStatusResponse struct {
-	PlatformsFound       uint32   `protobuf:"varint,1,opt,name=platforms_found,json=platformsFound,proto3" json:"platforms_found,omitempty"`
-	PlatformsSet         uint32   `protobuf:"varint,2,opt,name=platforms_set,json=platformsSet,proto3" json:"platforms_set,omitempty"`
+// SetServiceStateResponse returns a unique request ID for tracking the
+// requested change in the state of a service
+type SetServiceStateResponse struct {
+	RequestId            string   `protobuf:"bytes,1,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SetDeploymentStatusResponse) Reset()         { *m = SetDeploymentStatusResponse{} }
-func (m *SetDeploymentStatusResponse) String() string { return proto.CompactTextString(m) }
-func (*SetDeploymentStatusResponse) ProtoMessage()    {}
-func (*SetDeploymentStatusResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_scaler_0d1a5c489ad6b301, []int{5}
+func (m *SetServiceStateResponse) Reset()         { *m = SetServiceStateResponse{} }
+func (m *SetServiceStateResponse) String() string { return proto.CompactTextString(m) }
+func (*SetServiceStateResponse) ProtoMessage()    {}
+func (*SetServiceStateResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_scaler_433553de266d0143, []int{5}
 }
-func (m *SetDeploymentStatusResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SetDeploymentStatusResponse.Unmarshal(m, b)
+func (m *SetServiceStateResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SetServiceStateResponse.Unmarshal(m, b)
 }
-func (m *SetDeploymentStatusResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SetDeploymentStatusResponse.Marshal(b, m, deterministic)
+func (m *SetServiceStateResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SetServiceStateResponse.Marshal(b, m, deterministic)
 }
-func (dst *SetDeploymentStatusResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SetDeploymentStatusResponse.Merge(dst, src)
+func (dst *SetServiceStateResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SetServiceStateResponse.Merge(dst, src)
 }
-func (m *SetDeploymentStatusResponse) XXX_Size() int {
-	return xxx_messageInfo_SetDeploymentStatusResponse.Size(m)
+func (m *SetServiceStateResponse) XXX_Size() int {
+	return xxx_messageInfo_SetServiceStateResponse.Size(m)
 }
-func (m *SetDeploymentStatusResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_SetDeploymentStatusResponse.DiscardUnknown(m)
+func (m *SetServiceStateResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_SetServiceStateResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_SetDeploymentStatusResponse proto.InternalMessageInfo
+var xxx_messageInfo_SetServiceStateResponse proto.InternalMessageInfo
 
-func (m *SetDeploymentStatusResponse) GetPlatformsFound() uint32 {
+func (m *SetServiceStateResponse) GetRequestId() string {
 	if m != nil {
-		return m.PlatformsFound
+		return m.RequestId
 	}
-	return 0
+	return ""
 }
 
-func (m *SetDeploymentStatusResponse) GetPlatformsSet() uint32 {
+// PollStateChangeRequest requests the status of a SetServiceStateRequest
+type PollStateChangeRequest struct {
+	RequestId            string   `protobuf:"bytes,1,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *PollStateChangeRequest) Reset()         { *m = PollStateChangeRequest{} }
+func (m *PollStateChangeRequest) String() string { return proto.CompactTextString(m) }
+func (*PollStateChangeRequest) ProtoMessage()    {}
+func (*PollStateChangeRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_scaler_433553de266d0143, []int{6}
+}
+func (m *PollStateChangeRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_PollStateChangeRequest.Unmarshal(m, b)
+}
+func (m *PollStateChangeRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_PollStateChangeRequest.Marshal(b, m, deterministic)
+}
+func (dst *PollStateChangeRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PollStateChangeRequest.Merge(dst, src)
+}
+func (m *PollStateChangeRequest) XXX_Size() int {
+	return xxx_messageInfo_PollStateChangeRequest.Size(m)
+}
+func (m *PollStateChangeRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_PollStateChangeRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_PollStateChangeRequest proto.InternalMessageInfo
+
+func (m *PollStateChangeRequest) GetRequestId() string {
 	if m != nil {
-		return m.PlatformsSet
+		return m.RequestId
 	}
-	return 0
+	return ""
 }
 
-// DeploymentStatus is the information about a deployment on an individual platform
-type DeploymentStatus struct {
+// PollStateChangeResponse reports the status of a SetServiceStateRequest
+type PollStateChangeResponse struct {
+	IsCompleted          bool     `protobuf:"varint,1,opt,name=is_completed,json=isCompleted,proto3" json:"is_completed,omitempty"`
+	IsSuccessful         bool     `protobuf:"varint,2,opt,name=is_successful,json=isSuccessful,proto3" json:"is_successful,omitempty"`
+	Message              string   `protobuf:"bytes,3,opt,name=message,proto3" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *PollStateChangeResponse) Reset()         { *m = PollStateChangeResponse{} }
+func (m *PollStateChangeResponse) String() string { return proto.CompactTextString(m) }
+func (*PollStateChangeResponse) ProtoMessage()    {}
+func (*PollStateChangeResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_scaler_433553de266d0143, []int{7}
+}
+func (m *PollStateChangeResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_PollStateChangeResponse.Unmarshal(m, b)
+}
+func (m *PollStateChangeResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_PollStateChangeResponse.Marshal(b, m, deterministic)
+}
+func (dst *PollStateChangeResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PollStateChangeResponse.Merge(dst, src)
+}
+func (m *PollStateChangeResponse) XXX_Size() int {
+	return xxx_messageInfo_PollStateChangeResponse.Size(m)
+}
+func (m *PollStateChangeResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_PollStateChangeResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_PollStateChangeResponse proto.InternalMessageInfo
+
+func (m *PollStateChangeResponse) GetIsCompleted() bool {
+	if m != nil {
+		return m.IsCompleted
+	}
+	return false
+}
+
+func (m *PollStateChangeResponse) GetIsSuccessful() bool {
+	if m != nil {
+		return m.IsSuccessful
+	}
+	return false
+}
+
+func (m *PollStateChangeResponse) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+// ServiceState is the information about a deployment on an individual platform
+type ServiceState struct {
 	PlatformId           string   `protobuf:"bytes,1,opt,name=platform_id,json=platformId,proto3" json:"platform_id,omitempty"`
 	InstanceCount        uint32   `protobuf:"varint,2,opt,name=instance_count,json=instanceCount,proto3" json:"instance_count,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -284,38 +371,38 @@ type DeploymentStatus struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeploymentStatus) Reset()         { *m = DeploymentStatus{} }
-func (m *DeploymentStatus) String() string { return proto.CompactTextString(m) }
-func (*DeploymentStatus) ProtoMessage()    {}
-func (*DeploymentStatus) Descriptor() ([]byte, []int) {
-	return fileDescriptor_scaler_0d1a5c489ad6b301, []int{6}
+func (m *ServiceState) Reset()         { *m = ServiceState{} }
+func (m *ServiceState) String() string { return proto.CompactTextString(m) }
+func (*ServiceState) ProtoMessage()    {}
+func (*ServiceState) Descriptor() ([]byte, []int) {
+	return fileDescriptor_scaler_433553de266d0143, []int{8}
 }
-func (m *DeploymentStatus) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_DeploymentStatus.Unmarshal(m, b)
+func (m *ServiceState) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ServiceState.Unmarshal(m, b)
 }
-func (m *DeploymentStatus) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_DeploymentStatus.Marshal(b, m, deterministic)
+func (m *ServiceState) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ServiceState.Marshal(b, m, deterministic)
 }
-func (dst *DeploymentStatus) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_DeploymentStatus.Merge(dst, src)
+func (dst *ServiceState) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ServiceState.Merge(dst, src)
 }
-func (m *DeploymentStatus) XXX_Size() int {
-	return xxx_messageInfo_DeploymentStatus.Size(m)
+func (m *ServiceState) XXX_Size() int {
+	return xxx_messageInfo_ServiceState.Size(m)
 }
-func (m *DeploymentStatus) XXX_DiscardUnknown() {
-	xxx_messageInfo_DeploymentStatus.DiscardUnknown(m)
+func (m *ServiceState) XXX_DiscardUnknown() {
+	xxx_messageInfo_ServiceState.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_DeploymentStatus proto.InternalMessageInfo
+var xxx_messageInfo_ServiceState proto.InternalMessageInfo
 
-func (m *DeploymentStatus) GetPlatformId() string {
+func (m *ServiceState) GetPlatformId() string {
 	if m != nil {
 		return m.PlatformId
 	}
 	return ""
 }
 
-func (m *DeploymentStatus) GetInstanceCount() uint32 {
+func (m *ServiceState) GetInstanceCount() uint32 {
 	if m != nil {
 		return m.InstanceCount
 	}
@@ -323,13 +410,15 @@ func (m *DeploymentStatus) GetInstanceCount() uint32 {
 }
 
 func init() {
-	proto.RegisterType((*DeploymentsResponse)(nil), "protobuf.DeploymentsResponse")
-	proto.RegisterType((*PlatformsResponse)(nil), "protobuf.PlatformsResponse")
-	proto.RegisterType((*GetDeploymentStatusRequest)(nil), "protobuf.GetDeploymentStatusRequest")
-	proto.RegisterType((*GetDeploymentStatusResponse)(nil), "protobuf.GetDeploymentStatusResponse")
-	proto.RegisterType((*SetDeploymentStatusRequest)(nil), "protobuf.SetDeploymentStatusRequest")
-	proto.RegisterType((*SetDeploymentStatusResponse)(nil), "protobuf.SetDeploymentStatusResponse")
-	proto.RegisterType((*DeploymentStatus)(nil), "protobuf.DeploymentStatus")
+	proto.RegisterType((*EnumerateServicesResponse)(nil), "protobuf.EnumerateServicesResponse")
+	proto.RegisterType((*EnumeratePlatformsResponse)(nil), "protobuf.EnumeratePlatformsResponse")
+	proto.RegisterType((*GetServiceStateRequest)(nil), "protobuf.GetServiceStateRequest")
+	proto.RegisterType((*GetServiceStateResponse)(nil), "protobuf.GetServiceStateResponse")
+	proto.RegisterType((*SetServiceStateRequest)(nil), "protobuf.SetServiceStateRequest")
+	proto.RegisterType((*SetServiceStateResponse)(nil), "protobuf.SetServiceStateResponse")
+	proto.RegisterType((*PollStateChangeRequest)(nil), "protobuf.PollStateChangeRequest")
+	proto.RegisterType((*PollStateChangeResponse)(nil), "protobuf.PollStateChangeResponse")
+	proto.RegisterType((*ServiceState)(nil), "protobuf.ServiceState")
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -344,14 +433,17 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type ScalerClient interface {
-	// EnumerateDeployments lists all known deployment IDs
-	EnumerateDeployments(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*DeploymentsResponse, error)
+	// EnumerateServices lists all known service IDs
+	EnumerateServices(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*EnumerateServicesResponse, error)
 	// EnumeratePlatforms lists all known platform IDs
-	EnumeratePlatforms(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*PlatformsResponse, error)
-	// GetDeploymentStatus lists the status of the deployment on all platforms
-	GetDeploymentStatus(ctx context.Context, in *GetDeploymentStatusRequest, opts ...grpc.CallOption) (*GetDeploymentStatusResponse, error)
-	// SetDeploymentStatus sets the desired deployment status
-	SetDeploymentStatus(ctx context.Context, in *SetDeploymentStatusRequest, opts ...grpc.CallOption) (*SetDeploymentStatusResponse, error)
+	EnumeratePlatforms(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*EnumeratePlatformsResponse, error)
+	// GetServiceState lists the state of the service on all platforms
+	GetServiceState(ctx context.Context, in *GetServiceStateRequest, opts ...grpc.CallOption) (*GetServiceStateResponse, error)
+	// SetServiceState initiates a request to change the state of a service
+	// Returns a unique request_id for tracking the status of the request
+	SetServiceState(ctx context.Context, in *SetServiceStateRequest, opts ...grpc.CallOption) (*SetServiceStateResponse, error)
+	// PollStateChange checks the status of a SetServiceState request
+	PollStateChange(ctx context.Context, in *PollStateChangeRequest, opts ...grpc.CallOption) (*PollStateChangeResponse, error)
 }
 
 type scalerClient struct {
@@ -362,17 +454,17 @@ func NewScalerClient(cc *grpc.ClientConn) ScalerClient {
 	return &scalerClient{cc}
 }
 
-func (c *scalerClient) EnumerateDeployments(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*DeploymentsResponse, error) {
-	out := new(DeploymentsResponse)
-	err := c.cc.Invoke(ctx, "/protobuf.Scaler/EnumerateDeployments", in, out, opts...)
+func (c *scalerClient) EnumerateServices(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*EnumerateServicesResponse, error) {
+	out := new(EnumerateServicesResponse)
+	err := c.cc.Invoke(ctx, "/protobuf.Scaler/EnumerateServices", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *scalerClient) EnumeratePlatforms(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*PlatformsResponse, error) {
-	out := new(PlatformsResponse)
+func (c *scalerClient) EnumeratePlatforms(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*EnumeratePlatformsResponse, error) {
+	out := new(EnumeratePlatformsResponse)
 	err := c.cc.Invoke(ctx, "/protobuf.Scaler/EnumeratePlatforms", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -380,18 +472,27 @@ func (c *scalerClient) EnumeratePlatforms(ctx context.Context, in *empty.Empty, 
 	return out, nil
 }
 
-func (c *scalerClient) GetDeploymentStatus(ctx context.Context, in *GetDeploymentStatusRequest, opts ...grpc.CallOption) (*GetDeploymentStatusResponse, error) {
-	out := new(GetDeploymentStatusResponse)
-	err := c.cc.Invoke(ctx, "/protobuf.Scaler/GetDeploymentStatus", in, out, opts...)
+func (c *scalerClient) GetServiceState(ctx context.Context, in *GetServiceStateRequest, opts ...grpc.CallOption) (*GetServiceStateResponse, error) {
+	out := new(GetServiceStateResponse)
+	err := c.cc.Invoke(ctx, "/protobuf.Scaler/GetServiceState", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *scalerClient) SetDeploymentStatus(ctx context.Context, in *SetDeploymentStatusRequest, opts ...grpc.CallOption) (*SetDeploymentStatusResponse, error) {
-	out := new(SetDeploymentStatusResponse)
-	err := c.cc.Invoke(ctx, "/protobuf.Scaler/SetDeploymentStatus", in, out, opts...)
+func (c *scalerClient) SetServiceState(ctx context.Context, in *SetServiceStateRequest, opts ...grpc.CallOption) (*SetServiceStateResponse, error) {
+	out := new(SetServiceStateResponse)
+	err := c.cc.Invoke(ctx, "/protobuf.Scaler/SetServiceState", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *scalerClient) PollStateChange(ctx context.Context, in *PollStateChangeRequest, opts ...grpc.CallOption) (*PollStateChangeResponse, error) {
+	out := new(PollStateChangeResponse)
+	err := c.cc.Invoke(ctx, "/protobuf.Scaler/PollStateChange", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -400,34 +501,37 @@ func (c *scalerClient) SetDeploymentStatus(ctx context.Context, in *SetDeploymen
 
 // ScalerServer is the server API for Scaler service.
 type ScalerServer interface {
-	// EnumerateDeployments lists all known deployment IDs
-	EnumerateDeployments(context.Context, *empty.Empty) (*DeploymentsResponse, error)
+	// EnumerateServices lists all known service IDs
+	EnumerateServices(context.Context, *empty.Empty) (*EnumerateServicesResponse, error)
 	// EnumeratePlatforms lists all known platform IDs
-	EnumeratePlatforms(context.Context, *empty.Empty) (*PlatformsResponse, error)
-	// GetDeploymentStatus lists the status of the deployment on all platforms
-	GetDeploymentStatus(context.Context, *GetDeploymentStatusRequest) (*GetDeploymentStatusResponse, error)
-	// SetDeploymentStatus sets the desired deployment status
-	SetDeploymentStatus(context.Context, *SetDeploymentStatusRequest) (*SetDeploymentStatusResponse, error)
+	EnumeratePlatforms(context.Context, *empty.Empty) (*EnumeratePlatformsResponse, error)
+	// GetServiceState lists the state of the service on all platforms
+	GetServiceState(context.Context, *GetServiceStateRequest) (*GetServiceStateResponse, error)
+	// SetServiceState initiates a request to change the state of a service
+	// Returns a unique request_id for tracking the status of the request
+	SetServiceState(context.Context, *SetServiceStateRequest) (*SetServiceStateResponse, error)
+	// PollStateChange checks the status of a SetServiceState request
+	PollStateChange(context.Context, *PollStateChangeRequest) (*PollStateChangeResponse, error)
 }
 
 func RegisterScalerServer(s *grpc.Server, srv ScalerServer) {
 	s.RegisterService(&_Scaler_serviceDesc, srv)
 }
 
-func _Scaler_EnumerateDeployments_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Scaler_EnumerateServices_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(empty.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ScalerServer).EnumerateDeployments(ctx, in)
+		return srv.(ScalerServer).EnumerateServices(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/protobuf.Scaler/EnumerateDeployments",
+		FullMethod: "/protobuf.Scaler/EnumerateServices",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScalerServer).EnumerateDeployments(ctx, req.(*empty.Empty))
+		return srv.(ScalerServer).EnumerateServices(ctx, req.(*empty.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -450,38 +554,56 @@ func _Scaler_EnumeratePlatforms_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Scaler_GetDeploymentStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDeploymentStatusRequest)
+func _Scaler_GetServiceState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetServiceStateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ScalerServer).GetDeploymentStatus(ctx, in)
+		return srv.(ScalerServer).GetServiceState(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/protobuf.Scaler/GetDeploymentStatus",
+		FullMethod: "/protobuf.Scaler/GetServiceState",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScalerServer).GetDeploymentStatus(ctx, req.(*GetDeploymentStatusRequest))
+		return srv.(ScalerServer).GetServiceState(ctx, req.(*GetServiceStateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Scaler_SetDeploymentStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetDeploymentStatusRequest)
+func _Scaler_SetServiceState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetServiceStateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ScalerServer).SetDeploymentStatus(ctx, in)
+		return srv.(ScalerServer).SetServiceState(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/protobuf.Scaler/SetDeploymentStatus",
+		FullMethod: "/protobuf.Scaler/SetServiceState",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScalerServer).SetDeploymentStatus(ctx, req.(*SetDeploymentStatusRequest))
+		return srv.(ScalerServer).SetServiceState(ctx, req.(*SetServiceStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Scaler_PollStateChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PollStateChangeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScalerServer).PollStateChange(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/protobuf.Scaler/PollStateChange",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScalerServer).PollStateChange(ctx, req.(*PollStateChangeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -491,58 +613,66 @@ var _Scaler_serviceDesc = grpc.ServiceDesc{
 	HandlerType: (*ScalerServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "EnumerateDeployments",
-			Handler:    _Scaler_EnumerateDeployments_Handler,
+			MethodName: "EnumerateServices",
+			Handler:    _Scaler_EnumerateServices_Handler,
 		},
 		{
 			MethodName: "EnumeratePlatforms",
 			Handler:    _Scaler_EnumeratePlatforms_Handler,
 		},
 		{
-			MethodName: "GetDeploymentStatus",
-			Handler:    _Scaler_GetDeploymentStatus_Handler,
+			MethodName: "GetServiceState",
+			Handler:    _Scaler_GetServiceState_Handler,
 		},
 		{
-			MethodName: "SetDeploymentStatus",
-			Handler:    _Scaler_SetDeploymentStatus_Handler,
+			MethodName: "SetServiceState",
+			Handler:    _Scaler_SetServiceState_Handler,
+		},
+		{
+			MethodName: "PollStateChange",
+			Handler:    _Scaler_PollStateChange_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "scaler.proto",
 }
 
-func init() { proto.RegisterFile("scaler.proto", fileDescriptor_scaler_0d1a5c489ad6b301) }
+func init() { proto.RegisterFile("scaler.proto", fileDescriptor_scaler_433553de266d0143) }
 
-var fileDescriptor_scaler_0d1a5c489ad6b301 = []byte{
-	// 465 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x93, 0xdd, 0x6a, 0xd4, 0x40,
-	0x14, 0xc7, 0xc9, 0x2a, 0x45, 0x4f, 0x77, 0x6b, 0x3b, 0x2b, 0x52, 0x66, 0xeb, 0x07, 0x63, 0xab,
-	0x45, 0x24, 0xc1, 0x5a, 0x10, 0x7a, 0x27, 0x5a, 0x4b, 0xef, 0x64, 0x73, 0xe7, 0xcd, 0x32, 0xdd,
-	0x9c, 0x94, 0x60, 0x32, 0x13, 0x33, 0x13, 0x61, 0x11, 0x6f, 0xbc, 0xf4, 0xd6, 0x1b, 0xc1, 0xa7,
-	0xf0, 0x59, 0x7c, 0x05, 0x1f, 0x44, 0x32, 0xf9, 0x98, 0x6d, 0x93, 0x8d, 0x5f, 0x57, 0x81, 0xff,
-	0x9c, 0x73, 0xfe, 0xbf, 0x9c, 0xf9, 0x0f, 0x0c, 0xd5, 0x9c, 0xc7, 0x98, 0xb9, 0x69, 0x26, 0xb5,
-	0x24, 0xd7, 0xcc, 0xe7, 0x2c, 0x0f, 0xe9, 0xce, 0xb9, 0x94, 0xe7, 0x31, 0x7a, 0x3c, 0x8d, 0x3c,
-	0x2e, 0x84, 0xd4, 0x5c, 0x47, 0x52, 0xa8, 0xb2, 0x8e, 0x4e, 0xaa, 0xd3, 0xba, 0xdc, 0xc3, 0x24,
-	0xd5, 0x8b, 0xf2, 0x90, 0x1d, 0xc1, 0xf8, 0x25, 0xa6, 0xb1, 0x5c, 0x24, 0x28, 0xb4, 0x9a, 0xa2,
-	0x4a, 0xa5, 0x50, 0x48, 0xee, 0xc3, 0x28, 0x68, 0xe4, 0x59, 0x14, 0x6c, 0x3b, 0xf7, 0xae, 0xec,
-	0x5f, 0x9f, 0x0e, 0xad, 0x78, 0x1a, 0xb0, 0x43, 0xd8, 0x7a, 0x1d, 0x73, 0x1d, 0xca, 0x2c, 0xb1,
-	0x9d, 0x77, 0x61, 0x3d, 0xad, 0x44, 0xdb, 0x07, 0xb5, 0x74, 0x1a, 0xb0, 0xe7, 0x40, 0x4f, 0x50,
-	0x5b, 0x53, 0x5f, 0x73, 0x9d, 0xab, 0x29, 0xbe, 0xcb, 0x51, 0xe9, 0x2e, 0x63, 0xa7, 0x65, 0x1c,
-	0xc2, 0xa4, 0x73, 0x44, 0x85, 0x70, 0x02, 0x5b, 0x4b, 0x33, 0x94, 0x39, 0x34, 0x20, 0xeb, 0x07,
-	0xd4, 0xad, 0xb7, 0xe0, 0xb6, 0xda, 0x37, 0x83, 0x4b, 0x0a, 0xfb, 0xec, 0x00, 0xf5, 0xff, 0x8f,
-	0xb5, 0x1b, 0x66, 0xf0, 0x0f, 0x30, 0x6f, 0x61, 0xe2, 0xf7, 0xfc, 0xf4, 0x43, 0xb8, 0x51, 0x2f,
-	0x59, 0xcd, 0x42, 0x99, 0x8b, 0x12, 0x67, 0x34, 0xdd, 0x68, 0xe4, 0x57, 0x85, 0x5a, 0x50, 0xdb,
-	0x42, 0x85, 0x7a, 0x7b, 0x60, 0xca, 0x86, 0x8d, 0xe8, 0xa3, 0x66, 0x6f, 0x60, 0xf3, 0xb2, 0x53,
-	0xfb, 0x66, 0x9d, 0x8b, 0x37, 0x4b, 0xf6, 0x60, 0x23, 0x12, 0x4a, 0x73, 0x31, 0xc7, 0xd9, 0x5c,
-	0xe6, 0xa2, 0x1e, 0x3d, 0xaa, 0xd5, 0x17, 0x85, 0x78, 0xf0, 0xfd, 0x2a, 0xac, 0xf9, 0x26, 0xc8,
-	0x44, 0xc1, 0xcd, 0x63, 0x91, 0x27, 0x98, 0x71, 0x8d, 0x4b, 0x31, 0x24, 0xb7, 0xdc, 0x32, 0xb3,
-	0x76, 0x41, 0xc7, 0x45, 0x66, 0xe9, 0xed, 0xae, 0x8d, 0x35, 0x3b, 0x60, 0xbb, 0x9f, 0x7e, 0xfc,
-	0xfc, 0x32, 0xb8, 0x43, 0x76, 0x3c, 0x85, 0xd9, 0xfb, 0x68, 0x8e, 0xca, 0x2b, 0x5f, 0x8c, 0x17,
-	0x2c, 0x0d, 0x5f, 0x00, 0x69, 0x4c, 0x9b, 0xfc, 0xae, 0xb4, 0x9c, 0x58, 0xa1, 0x15, 0x76, 0xe6,
-	0x1a, 0xc3, 0x7d, 0xf2, 0xa0, 0xcf, 0xd0, 0x6b, 0x36, 0x4b, 0xbe, 0x3a, 0x30, 0xee, 0x48, 0x2e,
-	0xd9, 0xb5, 0x26, 0xab, 0xdf, 0x06, 0xdd, 0xfb, 0x4d, 0x55, 0x05, 0x75, 0x68, 0xa0, 0x5c, 0xf2,
-	0xb8, 0x17, 0xea, 0xc3, 0x85, 0xe8, 0x7e, 0x24, 0xdf, 0x1c, 0x18, 0xfb, 0xfd, 0x68, 0xfe, 0x1f,
-	0xa1, 0xf5, 0x84, 0x94, 0x3d, 0x33, 0x68, 0x4f, 0xe8, 0x5f, 0xa1, 0x1d, 0x39, 0x8f, 0xce, 0xd6,
-	0xcc, 0xf8, 0xa7, 0xbf, 0x02, 0x00, 0x00, 0xff, 0xff, 0x3e, 0xeb, 0xb4, 0x75, 0x02, 0x05, 0x00,
-	0x00,
+var fileDescriptor_scaler_433553de266d0143 = []byte{
+	// 536 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x93, 0xcd, 0x6a, 0xdb, 0x40,
+	0x14, 0x85, 0x51, 0x42, 0xd3, 0xe4, 0xda, 0xae, 0xe9, 0x2c, 0x6c, 0x47, 0x69, 0x68, 0x2c, 0x37,
+	0x25, 0x34, 0x60, 0x91, 0x74, 0x91, 0x92, 0xd2, 0x95, 0x09, 0x25, 0xbb, 0x20, 0x41, 0xb6, 0x66,
+	0x22, 0x5f, 0xbb, 0x02, 0x49, 0xa3, 0xea, 0x8e, 0x0a, 0xc5, 0x84, 0x42, 0x17, 0x85, 0xae, 0xba,
+	0xe8, 0x33, 0xf4, 0x89, 0xfa, 0x0a, 0x7d, 0x90, 0xe2, 0xd1, 0xc8, 0x92, 0x23, 0x2b, 0xfd, 0x59,
+	0x99, 0x39, 0x33, 0xc7, 0xdf, 0x19, 0xcd, 0x3d, 0xd0, 0x24, 0x8f, 0x07, 0x98, 0x0c, 0xe3, 0x44,
+	0x48, 0xc1, 0xb6, 0xd5, 0xcf, 0x4d, 0x3a, 0x35, 0x9f, 0xcc, 0x84, 0x98, 0x05, 0x68, 0xf3, 0xd8,
+	0xb7, 0x79, 0x14, 0x09, 0xc9, 0xa5, 0x2f, 0x22, 0xca, 0xce, 0x99, 0x7b, 0x7a, 0x37, 0x3f, 0x6e,
+	0x63, 0x18, 0xcb, 0x8f, 0xd9, 0xa6, 0x75, 0x0e, 0xbb, 0x17, 0x51, 0x1a, 0x62, 0xc2, 0x25, 0xba,
+	0x98, 0x7c, 0xf0, 0x3d, 0x24, 0x07, 0x29, 0x16, 0x11, 0x21, 0xdb, 0x07, 0xa0, 0x4c, 0x1b, 0xfb,
+	0x93, 0x9e, 0x71, 0xb0, 0x79, 0xb4, 0xe3, 0xec, 0x68, 0xe5, 0x72, 0x62, 0xbd, 0x01, 0x73, 0xe9,
+	0xbd, 0x0a, 0xb8, 0x9c, 0x8a, 0x24, 0x2c, 0xcc, 0x4f, 0xa1, 0x11, 0x6b, 0xb1, 0x70, 0x43, 0x2e,
+	0x5d, 0x4e, 0xac, 0x33, 0xe8, 0xbc, 0x45, 0xa9, 0xa1, 0xae, 0xe4, 0x12, 0x1d, 0x7c, 0x9f, 0x22,
+	0xc9, 0x0a, 0xd7, 0x58, 0xe5, 0x5e, 0x43, 0xb7, 0x62, 0xd4, 0xd0, 0xd7, 0xd0, 0xca, 0x9d, 0xb4,
+	0xd8, 0x50, 0xd8, 0xc6, 0x69, 0x67, 0x98, 0x5f, 0x7e, 0xb8, 0x62, 0x6b, 0x52, 0x69, 0x65, 0x49,
+	0xe8, 0xb8, 0xff, 0x13, 0xa8, 0x4a, 0xdd, 0xf8, 0x07, 0xea, 0x2b, 0xe8, 0xba, 0x35, 0xb7, 0xd9,
+	0x07, 0x48, 0xb2, 0x04, 0x25, 0xac, 0x56, 0xb2, 0x0f, 0x78, 0x25, 0x82, 0x40, 0x79, 0x46, 0xef,
+	0x78, 0x34, 0x2b, 0xe7, 0xbd, 0xcf, 0x38, 0x87, 0x6e, 0xc5, 0xa8, 0x91, 0x7d, 0x68, 0xfa, 0x34,
+	0xf6, 0x44, 0x18, 0x07, 0x28, 0x31, 0xf3, 0x6e, 0x3b, 0x0d, 0x9f, 0x46, 0xb9, 0xc4, 0x06, 0xd0,
+	0xf2, 0x69, 0x4c, 0xa9, 0xe7, 0x21, 0xd1, 0x34, 0x0d, 0x7a, 0x1b, 0xea, 0x4c, 0xd3, 0x27, 0x77,
+	0xa9, 0xb1, 0x1e, 0x3c, 0x0c, 0x91, 0x88, 0xcf, 0xb0, 0xb7, 0xa9, 0xf0, 0xf9, 0xd2, 0xba, 0x86,
+	0x66, 0xf9, 0xb2, 0xd5, 0x39, 0x31, 0x56, 0xe7, 0x84, 0x1d, 0xc2, 0x23, 0x3f, 0x22, 0xc9, 0x23,
+	0x0f, 0xc7, 0x9e, 0x48, 0x23, 0xa9, 0x80, 0x2d, 0xa7, 0x95, 0xab, 0xa3, 0x85, 0x78, 0xfa, 0xe3,
+	0x01, 0x6c, 0xb9, 0xaa, 0x1f, 0x8c, 0xe0, 0x71, 0x65, 0xa8, 0x59, 0x67, 0x98, 0xf5, 0xa0, 0x78,
+	0x94, 0x8b, 0x45, 0x0f, 0xcc, 0x41, 0x49, 0xa8, 0x6b, 0x82, 0xd5, 0xff, 0xfc, 0xf3, 0xd7, 0xf7,
+	0x8d, 0x3d, 0xb6, 0x6b, 0xeb, 0xb7, 0x23, 0x3b, 0xeb, 0xe2, 0x72, 0xcd, 0x3e, 0x01, 0xab, 0xb6,
+	0xa1, 0x96, 0xfa, 0x6c, 0x0d, 0xb5, 0xd2, 0x21, 0xeb, 0x58, 0x61, 0x0f, 0xd9, 0xa0, 0x16, 0x6b,
+	0xc7, 0x4b, 0xd4, 0x17, 0x03, 0xda, 0x77, 0x7a, 0xc1, 0x0e, 0x0a, 0xcc, 0xfa, 0xae, 0x99, 0xfd,
+	0x7b, 0x4e, 0xe8, 0x14, 0x43, 0x95, 0xe2, 0x88, 0x3d, 0xaf, 0x4f, 0x31, 0x2f, 0xea, 0x71, 0xcb,
+	0xbe, 0x1a, 0xd0, 0x76, 0xeb, 0x83, 0xb8, 0x7f, 0x0c, 0x52, 0xd3, 0x07, 0xeb, 0x44, 0x05, 0x39,
+	0x36, 0xff, 0x32, 0xc8, 0xb9, 0xf1, 0x82, 0x7d, 0x33, 0xa0, 0x7d, 0x67, 0xd6, 0xcb, 0x59, 0xd6,
+	0xf7, 0xa7, 0x9c, 0xa5, 0xa6, 0x28, 0xd6, 0x99, 0xca, 0x72, 0xc2, 0xec, 0xfa, 0x2c, 0xba, 0x70,
+	0x64, 0xcf, 0x8b, 0x32, 0xde, 0xde, 0x6c, 0xa9, 0xbf, 0x7e, 0xf9, 0x3b, 0x00, 0x00, 0xff, 0xff,
+	0x0c, 0x96, 0x9c, 0x2b, 0xcd, 0x05, 0x00, 0x00,
 }
